@@ -1,0 +1,189 @@
+\documentclass[aspectratio=169]{beamer}
+
+% ----------------------------
+% Theme & Color Customization
+% ----------------------------
+\usetheme{default}
+\usecolortheme{default}
+
+\definecolor{SCFBrown}{HTML}{5A3E2B}
+\definecolor{SCFGray}{HTML}{4A4A4A}
+\definecolor{SCFSand}{HTML}{EFE6D8}
+
+\setbeamercolor{structure}{fg=SCFBrown}
+\setbeamercolor{frametitle}{fg=SCFBrown,bg=SCFSand}
+\setbeamercolor{title}{fg=SCFBrown}
+\setbeamercolor{normal text}{fg=SCFGray}
+\setbeamercolor{block title}{bg=SCFBrown!15,fg=SCFBrown}
+\setbeamercolor{block body}{bg=SCFSand}
+
+% ----------------------------
+% Footer Customization
+% ----------------------------
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}
+      \hspace{1em}Kevin Pyatt, Ph.D.
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.5ex,dp=1ex,center]{title in head/foot}
+      Lab 1 – Java Fundamentals
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1ex,right]{date in head/foot}
+      \insertframenumber{} / \inserttotalframenumber\hspace{1em}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+% ----------------------------
+% Title Info
+% ----------------------------
+\title{Lab 1: Java Fundamentals \& Project Structure}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Bradenton, FL}
+\date{\today}
+
+% ----------------------------
+% Document Begins
+% ----------------------------
+\begin{document}
+
+% ----------------------------
+% Title Slide
+% ----------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ----------------------------
+% Lab Objective
+% ----------------------------
+\begin{frame}{Lab Objective}
+\begin{itemize}
+  \item Write a simple Java program
+  \item Learn basic Java project structure
+  \item Compile and run Java from the terminal
+  \item Introduce Git version control
+  \item Transition from terminal to VS Code
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+% Assignment Description
+% ----------------------------
+\begin{frame}{Assignment}
+Write a program that displays the area and perimeter of a rectangle with:
+\begin{itemize}
+  \item Width = 4.5
+  \item Height = 7.9
+\end{itemize}
+
+Formulas:
+\begin{block}{}
+Area = width × height \\
+Perimeter = 2 × (width + height)
+\end{block}
+\end{frame}
+
+% ----------------------------
+% Project Structure
+% ----------------------------
+\begin{frame}[fragile]{Project Folder Structure}
+\begin{verbatim}
+RectangleApp/
+├─ src/
+│  └─ main/
+│      └─ java/
+│          └─ com/
+│              └─ yourname/
+│                  └─ rectangleapp/
+│                      └─ RectangleCalculator.java
+├─ .gitignore
+└─ README.md
+\end{verbatim}
+\end{frame}
+
+% ----------------------------
+% Java Code
+% ----------------------------
+\begin{frame}[fragile]{RectangleCalculator.java}
+\begin{verbatim}
+package com.yourname.rectangleapp;
+
+public class RectangleCalculator {
+    public static void main(String[] args) {
+        double width = 4.5;
+        double height = 7.9;
+
+        double area = width * height;
+        double perimeter = 2 * (width + height);
+
+        System.out.println("Rectangle width: " + width);
+        System.out.println("Rectangle height: " + height);
+        System.out.println("Area: " + area);
+        System.out.println("Perimeter: " + perimeter);
+    }
+}
+\end{verbatim}
+\end{frame}
+
+% ----------------------------
+% Terminal Build & Run
+% ----------------------------
+\begin{frame}[fragile]{Compile and Run (Terminal)}
+\begin{verbatim}
+cd RectangleApp/src/main/java
+javac com/yourname/rectangleapp/RectangleCalculator.java
+java com.yourname.rectangleapp.RectangleCalculator
+\end{verbatim}
+\end{frame}
+
+% ----------------------------
+% Git Workflow
+% ----------------------------
+\begin{frame}[fragile]{Git Workflow}
+\begin{verbatim}
+cd RectangleApp
+git init
+git add .
+git commit -m "Initial commit - Rectangle Calculator"
+\end{verbatim}
+\end{frame}
+
+% ----------------------------
+% Shell Script
+% ----------------------------
+\begin{frame}[fragile]{Setup Script for Students}
+\begin{verbatim}
+chmod +x setup.sh
+./setup.sh
+\end{verbatim}
+
+This script generates:
+\begin{itemize}
+  \item Project folders
+  \item Java source file
+  \item README and .gitignore
+  \item Local Git repository
+\end{itemize}
+\end{frame}
+
+% ----------------------------
+% VS Code Transition
+% ----------------------------
+\begin{frame}{VS Code Workflow}
+\begin{itemize}
+  \item Open the RectangleApp folder in VS Code
+  \item Install Java Extension Pack
+  \item Open RectangleCalculator.java
+  \item Click Run ▶
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Using a Makefile}
+
