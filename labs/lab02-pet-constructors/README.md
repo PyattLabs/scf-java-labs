@@ -1,6 +1,6 @@
 # Lab 2: Pet Class with Constructors
 
-**COP2250 Java Programming | Week 2**
+**COP2250 Java Programming | Week 3**
 
 ## Overview
 
