@@ -1,10 +1,14 @@
-# Lab 2: Pet Class with Constructors
+# Pet Challenge Part 2: Constructors & Encapsulation
 
 **COP2250 Java Programming | Week 3**
 
 ## Overview
 
-Build on your Pet class from Week 1. Add constructors, private fields, and encapsulation.
+Build on your Pet class from Week 2. Add constructors, private fields, and encapsulation.
+
+## Prerequisites
+
+Complete Pet Challenge Part 1 (Week 2)
 
 ## Learning Objectives
 
