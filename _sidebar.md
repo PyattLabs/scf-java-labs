@@ -12,3 +12,5 @@
   * [Week 1](slides/week1-java-intro.pdf)
   * [Week 2](slides/week2-classes-objects.pdf)
   * [Week 3](slides/week3-constructors-encapsulation.pdf)
+  * [View as Website](docs/view-as-website.md)
+  * [Linux Installation](docs/linux-installation-guide.md)
