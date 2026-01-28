@@ -8,9 +8,10 @@
   * [Git Pull Instructions](docs/git-pull-instructions.md)
   * [Terminal Scavenger Hunt](docs/terminal-scavenger-hunt.md)
   * [Bash Reference](docs/bash-pocket-reference.md)
+  * [View as Website](docs/view-as-website.md)
+  * [Linux Installation](docs/linux-installation-guide.md)
 * **Slides**
   * [Week 1](slides/week1-java-intro.pdf)
   * [Week 2](slides/week2-classes-objects.pdf)
   * [Week 3](slides/week3-constructors-encapsulation.pdf)
-  * [View as Website](docs/view-as-website.md)
-  * [Linux Installation](docs/linux-installation-guide.md)
+  * [Lab 1](slides/lab1-java-fundamentals.pdf)
