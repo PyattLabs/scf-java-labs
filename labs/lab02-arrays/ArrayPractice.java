@@ -1,13 +1,11 @@
 /**
- * Lab 4: Array Practice
+ * Lab 2: Array Practice
  * 
  * COP2250 Java Programming
  * Kevin Pyatt, Ph.D. | Pyatt Labs
  * 
  * Complete the TODOs below to practice working with arrays.
- * This prepares you for Assignment 4 (Rock-Paper-Scissors).
- * 
- * This file is instructor-authored intellectual property.
+ * This prepares you for Assignment 3 (Rock-Paper-Scissors).
  */
 
 public class ArrayPractice {
@@ -69,7 +67,8 @@ public class ArrayPractice {
         //          Expected output: "Index 2 is: Paper"
         
         
-        System.out.println("\n--- Lab 4 Complete! ---");
-        System.out.println("You're ready for Assignment 4: Rock-Paper-Scissors");
+        System.out.println();
+        System.out.println("--- Lab 2 Complete! ---");
+        System.out.println("You're ready for Assignment 3: Rock-Paper-Scissors");
     }
 }
