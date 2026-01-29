@@ -7,7 +7,7 @@
 
 ## Objective
 
-Learn how to declare, initialize, and access array elements. This lab prepares you for Assignment 3 (Rock-Paper-Scissors).
+Learn how to declare, initialize, and access array elements. This prepares you for Assignment 3 (Rock-Paper-Scissors).
 
 ---
 
@@ -32,41 +32,25 @@ String[] choices = {"Scissor", "Rock", "Paper"};
 ## Array Basics
 
 ### Declaring an Array
-
 ```java
-// Declare and initialize in one line
 int[] scores = {90, 85, 78, 92, 88};
-
-// Or declare first, then fill
-String[] names = new String[3];
-names[0] = "Alice";
-names[1] = "Bob";
-names[2] = "Charlie";
 ```
 
-### Accessing Elements
-
-Arrays are **zero-indexed** — the first element is at index 0.
-
+### Accessing Elements (zero-indexed)
 ```java
-String[] choices = {"Scissor", "Rock", "Paper"};
-
 System.out.println(choices[0]);  // Scissor
 System.out.println(choices[1]);  // Rock
 System.out.println(choices[2]);  // Paper
 ```
 
 ### Array Length
-
 ```java
-String[] choices = {"Scissor", "Rock", "Paper"};
 System.out.println(choices.length);  // 3
 ```
 
 ---
 
 ## Compile and Run
-
 ```bash
 javac ArrayPractice.java
 java ArrayPractice
@@ -74,21 +58,12 @@ java ArrayPractice
 
 ---
 
-## Checklist Before Leaving Lab
+## Starter Code
 
-- [ ] I can declare an array with initial values
-- [ ] I can access elements by index (starting at 0)
-- [ ] I understand .length gives the array size
-- [ ] I can loop through an array
-- [ ] I understand how arrays will be used in Rock-Paper-Scissors
+**[Download ArrayPractice.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/lab02-arrays/ArrayPractice.java)**
+
+Right-click → Save Link As
 
 ---
 
 *This lab is instructor-authored intellectual property.*
-
----
-
-## Starter Code
-
-[Download ArrayPractice.java](/labs/lab02-arrays/ArrayPractice.java)
-
