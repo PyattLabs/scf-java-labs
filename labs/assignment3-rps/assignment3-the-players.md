@@ -17,21 +17,16 @@
 ---
 
 ## The Array Setup
-
 ```java
 String[] choices = {"Scissor", "Rock", "Paper"};
 //                     0          1        2
 ```
 
-**Index mapping:**
-- 0 = Scissor
-- 1 = Rock  
-- 2 = Paper
+Index mapping: 0 = Scissor, 1 = Rock, 2 = Paper
 
 ---
 
 ## Random Number Generation
-
 ```java
 import java.util.Random;
 
@@ -42,7 +37,6 @@ int computer = rand.nextInt(3);  // Returns 0, 1, or 2
 ---
 
 ## Getting User Input
-
 ```java
 import java.util.Scanner;
 
@@ -68,7 +62,6 @@ int user = input.nextInt();
 ---
 
 ## User Wins Condition
-
 ```java
 (user == 0 && computer == 2) ||  // scissor cuts paper
 (user == 1 && computer == 0) ||  // rock smashes scissor
@@ -78,12 +71,10 @@ int user = input.nextInt();
 ---
 
 ## Sample Output
-
 ```
 scissor (0), rock (1), paper (2): 1
 The computer is paper. You are rock. Computer wins!
 ```
-
 ```
 scissor (0), rock (1), paper (2): 2
 The computer is rock. You are paper. You won!
@@ -101,11 +92,12 @@ The computer is rock. You are paper. You won!
 
 ---
 
-*This assignment is instructor-authored intellectual property.*
+## Starter Code
+
+**[Download RockPaperScissors.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/assignment3-rps/RockPaperScissors.java)**
+
+Right-click → Save Link As
 
 ---
 
-## Starter Code
-
-[Download RockPaperScissors.java](/labs/assignment3-rps/RockPaperScissors.java)
-
+*This assignment is instructor-authored intellectual property.*
