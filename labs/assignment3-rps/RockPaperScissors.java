@@ -1,5 +1,5 @@
 /**
- * Assignment 4: Rock-Paper-Scissors Game
+ * Assignment 3: Rock-Paper-Scissors Game
  * 
  * COP2250 Java Programming
  * Kevin Pyatt, Ph.D. | Pyatt Labs
@@ -8,8 +8,6 @@
  * - Scissor (0) cuts Paper (2)
  * - Rock (1) smashes Scissor (0)
  * - Paper (2) wraps Rock (1)
- * 
- * This file is instructor-authored intellectual property.
  */
 
 import java.util.Scanner;
@@ -38,52 +36,46 @@ public class RockPaperScissors {
         
         // TODO 4: Generate a random integer 0, 1, or 2
         //         Store it in a variable called "computer"
-        //         Hint: rand.nextInt(3)
         
         
         // ============================================
         // ACT 3: GET USER'S CHOICE
         // ============================================
         
-        // TODO 5: Print the prompt (no newline):
-        //         "scissor (0), rock (1), paper (2): "
+        // TODO 5: Print the prompt: "scissor (0), rock (1), paper (2): "
         
         
-        // TODO 6: Read the user's integer choice into a variable called "user"
+        // TODO 6: Read the user's choice into a variable called "user"
         
         
         // ============================================
         // ACT 4: DISPLAY CHOICES
         // ============================================
         
-        // TODO 7: Print what the computer chose
-        //         Use the choices array with the computer index
+        // TODO 7: Print what the computer chose using the array
         //         Format: "The computer is [choice]. "
-        //         Hint: Don't add newline yet - use print(), not println()
         
         
-        // TODO 8: Print what the user chose
-        //         Use the choices array with the user index
-        //         Format: "You are [choice]. " (or "You are [choice] too. " for draws)
+        // TODO 8: Print what the user chose using the array
+        //         Format: "You are [choice]. "
         
         
         // ============================================
         // ACT 5: DETERMINE THE WINNER
         // ============================================
         
-        // TODO 9: Check if it's a draw (user == computer)
-        //         If draw, print: "It is a draw!"
+        // TODO 9: If it's a draw (user == computer)
+        //         Print: "It is a draw!"
         
         
-        // TODO 10: Check if user wins
-        //          User wins if:
-        //          - user is 0 (Scissor) AND computer is 2 (Paper)
-        //          - user is 1 (Rock) AND computer is 0 (Scissor)
-        //          - user is 2 (Paper) AND computer is 1 (Rock)
-        //          If user wins, print: "You won!"
+        // TODO 10: Else if user wins:
+        //          - user==0 && computer==2 (scissor cuts paper)
+        //          - user==1 && computer==0 (rock smashes scissor)
+        //          - user==2 && computer==1 (paper wraps rock)
+        //          Print: "You won!"
         
         
-        // TODO 11: Otherwise, computer wins
+        // TODO 11: Else computer wins
         //          Print: "Computer wins!"
         
         
