@@ -90,5 +90,5 @@ java ArrayPractice
 
 ## Starter Code
 
-[Download ArrayPractice.java](ArrayPractice.java)
+[Download ArrayPractice.java](/labs/lab02-arrays/ArrayPractice.java)
 

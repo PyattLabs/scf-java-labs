@@ -107,5 +107,5 @@ The computer is rock. You are paper. You won!
 
 ## Starter Code
 
-[Download RockPaperScissors.java](RockPaperScissors.java)
+[Download RockPaperScissors.java](/labs/assignment3-rps/RockPaperScissors.java)
 
