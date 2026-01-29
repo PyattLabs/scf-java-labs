@@ -85,3 +85,10 @@ java ArrayPractice
 ---
 
 *This lab is instructor-authored intellectual property.*
+
+---
+
+## Starter Code
+
+[Download ArrayPractice.java](ArrayPractice.java)
+

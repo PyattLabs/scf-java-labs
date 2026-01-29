@@ -102,3 +102,10 @@ The computer is rock. You are paper. You won!
 ---
 
 *This assignment is instructor-authored intellectual property.*
+
+---
+
+## Starter Code
+
+[Download RockPaperScissors.java](RockPaperScissors.java)
+
