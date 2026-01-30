@@ -1,0 +1,373 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title[Arrays]{Arrays}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 4}
+
+\begin{document}
+
+% TITLE SLIDE
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% OBJECTIVES
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Understand what arrays are and why we use them
+  \item Declare and initialize arrays
+  \item Access elements by index (zero-indexed)
+  \item Use \texttt{.length} property
+  \item Loop through arrays
+  \item Apply arrays to Rock-Paper-Scissors
+\end{itemize}
+\end{frame}
+
+% THE PROBLEM
+\section{The Problem}
+\begin{frame}[fragile]{The Problem: Too Many Variables}
+\textbf{What if you need 100 test scores?}
+\begin{lstlisting}
+int score1 = 90;
+int score2 = 85;
+int score3 = 78;
+// ... 97 more lines?!
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{This doesn't scale.}
+\begin{itemize}
+  \item Tedious to write
+  \item Hard to maintain
+  \item Can't loop through individual variables
+\end{itemize}
+\end{frame}
+
+% THE SOLUTION
+\begin{frame}[fragile]{The Solution: Arrays}
+\textbf{An array holds multiple values in one variable.}
+
+\begin{lstlisting}
+int[] scores = {90, 85, 78, 92, 88};
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Think of it as a row of boxes:}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+90 & 85 & 78 & 92 & 88 \\
+\hline
+\texttt{[0]} & \texttt{[1]} & \texttt{[2]} & \texttt{[3]} & \texttt{[4]} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+Each box has an \textbf{index} starting at \textbf{0}.
+\end{frame}
+
+% DECLARING ARRAYS
+\section{Declaring Arrays}
+\begin{frame}[fragile]{Declaring Arrays}
+\textbf{Two ways to create an array:}
+
+\vspace{0.5cm}
+\textbf{1. Declare with initial values:}
+\begin{lstlisting}
+int[] scores = {90, 85, 78, 92, 88};
+String[] names = {"Alice", "Bob", "Charlie"};
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{2. Declare empty, fill later:}
+\begin{lstlisting}
+String[] colors = new String[3];  // 3 empty slots
+colors[0] = "Red";
+colors[1] = "Green";
+colors[2] = "Blue";
+\end{lstlisting}
+\end{frame}
+
+% ACCESSING ELEMENTS
+\section{Accessing Elements}
+\begin{frame}[fragile]{Accessing Elements}
+\textbf{Arrays are zero-indexed --- first element is at index 0.}
+
+\begin{lstlisting}
+String[] choices = {"Scissor", "Rock", "Paper"};
+
+System.out.println(choices[0]);  // Scissor
+System.out.println(choices[1]);  // Rock
+System.out.println(choices[2]);  // Paper
+\end{lstlisting}
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+"Scissor" & "Rock" & "Paper" \\
+\hline
+\texttt{[0]} & \texttt{[1]} & \texttt{[2]} \\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% COMMON MISTAKE
+\begin{frame}[fragile]{Common Mistake: Off-By-One}
+\textbf{Arrays start at 0, not 1!}
+
+\begin{lstlisting}
+String[] choices = {"Scissor", "Rock", "Paper"};
+
+// WRONG - will crash!
+System.out.println(choices[3]);  
+// ArrayIndexOutOfBoundsException
+
+// RIGHT - last index is length - 1
+System.out.println(choices[2]);  // Paper
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Remember:} For an array of size $n$, valid indices are $0$ to $n-1$.
+\end{frame}
+
+% ARRAY LENGTH
+\section{Array Length}
+\begin{frame}[fragile]{Array Length}
+\textbf{Use \texttt{.length} to get the size of an array.}
+
+\begin{lstlisting}
+String[] choices = {"Scissor", "Rock", "Paper"};
+
+System.out.println(choices.length);  // 3
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Useful for:}
+\begin{itemize}
+  \item Looping through all elements
+  \item Finding the last element: \texttt{array[array.length - 1]}
+  \item Avoiding out-of-bounds errors
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Note:} It's \texttt{.length} (no parentheses), not \texttt{.length()}
+\end{frame}
+
+% LOOPING
+\section{Looping Through Arrays}
+\begin{frame}[fragile]{Looping Through Arrays}
+\textbf{Use a for loop to visit every element:}
+
+\begin{lstlisting}
+int[] scores = {90, 85, 78, 92, 88};
+
+for (int i = 0; i < scores.length; i++) {
+    System.out.println("Score " + i + ": " + scores[i]);
+}
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Output:}
+\begin{verbatim}
+Score 0: 90
+Score 1: 85
+Score 2: 78
+Score 3: 92
+Score 4: 88
+\end{verbatim}
+\end{frame}
+
+% CALCULATE AVERAGE
+\begin{frame}[fragile]{Example: Calculate Average}
+\begin{lstlisting}
+int[] scores = {90, 85, 78, 92, 88};
+int sum = 0;
+
+for (int i = 0; i < scores.length; i++) {
+    sum = sum + scores[i];
+}
+
+double average = (double) sum / scores.length;
+System.out.println("Average: " + average);
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Output:} \texttt{Average: 86.6}
+
+\vspace{0.3cm}
+\textbf{Note:} Cast to \texttt{double} to avoid integer division.
+\end{frame}
+
+% ROCK PAPER SCISSORS
+\section{Application: Rock-Paper-Scissors}
+\begin{frame}[fragile]{Rock-Paper-Scissors with Arrays}
+\textbf{Store choices in an array:}
+
+\begin{lstlisting}
+String[] choices = {"Scissor", "Rock", "Paper"};
+//                     0          1        2
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Computer picks a random number:}
+\begin{lstlisting}
+Random rand = new Random();
+int computer = rand.nextInt(3);  // 0, 1, or 2
+
+System.out.println("Computer chose: " + choices[computer]);
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{User enters a number, we use it as index:}
+\begin{lstlisting}
+int user = input.nextInt();
+System.out.println("You chose: " + choices[user]);
+\end{lstlisting}
+\end{frame}
+
+% RPS LOGIC
+\begin{frame}{Rock-Paper-Scissors: Game Logic}
+\textbf{Index mapping:}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Index} & \textbf{Choice} \\
+\hline
+0 & Scissor \\
+1 & Rock \\
+2 & Paper \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\textbf{User wins when:}
+\begin{itemize}
+  \item user == 0 AND computer == 2 (scissor cuts paper)
+  \item user == 1 AND computer == 0 (rock smashes scissor)
+  \item user == 2 AND computer == 1 (paper wraps rock)
+\end{itemize}
+\end{frame}
+
+% RANDOM CLASS
+\begin{frame}[fragile]{The Random Class}
+\textbf{Import and create:}
+\begin{lstlisting}
+import java.util.Random;
+
+Random rand = new Random();
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Generate random integers:}
+\begin{lstlisting}
+int n = rand.nextInt(3);  // Returns 0, 1, or 2
+int m = rand.nextInt(10); // Returns 0 through 9
+int p = rand.nextInt(6) + 1; // Returns 1 through 6 (dice)
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Pattern:} \texttt{nextInt(max)} returns 0 to max-1
+\end{frame}
+
+% SUMMARY
+\section{Summary}
+\begin{frame}{Summary}
+\begin{itemize}
+  \item \textbf{Arrays} store multiple values of the same type
+  \item \textbf{Zero-indexed} --- first element is at index 0
+  \item \textbf{Declare:} \texttt{int[] arr = \{1, 2, 3\};}
+  \item \textbf{Access:} \texttt{arr[0]}, \texttt{arr[1]}, etc.
+  \item \textbf{Length:} \texttt{arr.length} (no parentheses)
+  \item \textbf{Loop:} \texttt{for (int i = 0; i < arr.length; i++)}
+  \item \textbf{Random:} \texttt{rand.nextInt(n)} gives 0 to n-1
+\end{itemize}
+\end{frame}
+
+% LAB PREVIEW
+\begin{frame}{Lab 2: Array Practice}
+\textbf{Complete \texttt{ArrayPractice.java}:}
+\begin{enumerate}
+  \item Create integer array with test scores
+  \item Print first and last elements
+  \item Calculate average using a loop
+  \item Create String array for colors
+  \item Print each color with a loop
+  \item Create Rock-Paper-Scissors choices array
+\end{enumerate}
+
+\vspace{0.5cm}
+\textbf{This prepares you for Assignment 3!}
+\end{frame}
+
+% ASSIGNMENT PREVIEW
+\begin{frame}{Assignment 3: Rock-Paper-Scissors}
+\textbf{Build a working game:}
+\begin{enumerate}
+  \item Create choices array
+  \item Generate random computer choice (0-2)
+  \item Get user input (0-2)
+  \item Display both choices using the array
+  \item Determine winner with if/else
+\end{enumerate}
+
+\vspace{0.5cm}
+\textbf{Starter code and reference sheet in the repo!}
+\end{frame}
+
+% END
+\begin{frame}
+\begin{center}
+\Huge Questions?
+
+\vspace{1cm}
+\large
+Lab 2: \texttt{ArrayPractice.java}
+
+\vspace{0.5cm}
+Assignment 3: Rock-Paper-Scissors
+\end{center}
+\end{frame}
+
+\end{document}
