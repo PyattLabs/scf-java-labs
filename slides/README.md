@@ -6,3 +6,4 @@
 | 2 | Classes & Objects | [week2-classes-objects.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week2-classes-objects.pdf) |
 | 3 | Constructors & Encapsulation | [week3-constructors-encapsulation.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week3-constructors-encapsulation.pdf) |
 | 4 | Arrays | [week4-arrays.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week4-arrays.pdf) |
+| 5 | Math, Characters & Strings | [week5-math-chars-strings.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week5-math-chars-strings.pdf) |
