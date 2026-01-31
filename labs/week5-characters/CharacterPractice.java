@@ -1,5 +1,5 @@
 /**
- * Lab 3: Character Practice
+ * Week 5 Lab: Character Practice
  * 
  * COP2250 Java Programming
  * Kevin Pyatt, Ph.D. | Pyatt Labs
@@ -72,7 +72,7 @@ public class CharacterPractice {
         
         
         System.out.println();
-        System.out.println("--- Lab 3 Complete! ---");
+        System.out.println("--- Week 5 Lab Complete! ---");
         System.out.println("You're ready for Assignment 4: Vowel or Consonant");
     }
 }
