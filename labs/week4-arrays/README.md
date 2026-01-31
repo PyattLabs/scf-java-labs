@@ -1,4 +1,4 @@
-# Lab 2: Introduction to Arrays
+# Week 4 Lab: Introduction to Arrays
 
 **COP2250 Java Programming**  
 **Kevin Pyatt, Ph.D. | Pyatt Labs**

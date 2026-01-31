@@ -1,4 +1,4 @@
-# Lab 3: Character Practice
+# Week 5 Lab: Character Practice
 
 **COP2250 Java Programming**  
 **Kevin Pyatt, Ph.D. | Pyatt Labs**
