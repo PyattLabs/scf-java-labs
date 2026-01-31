@@ -1,10 +1,10 @@
 * [Home](/)
 * **Labs**
-  * [Lab 1 - Java Fundamentals](labs/lab01-java-fundamentals/README.md)
-  * [Lab 2 - Arrays](labs/lab02-arrays/README.md)
-  * [Lab 3 - Characters](labs/lab03-characters/README.md)
-  * [Pet Challenge Part 1](labs/pet-challenge-part1/README.md)
-  * [Pet Challenge Part 2](labs/pet-challenge-part2/README.md)
+  * [Week 1 - Java Fundamentals](labs/week1-java-fundamentals/README.md)
+  * [Week 2 - Pet Challenge](labs/week2-pet-challenge/README.md)
+  * [Week 3 - Pet Challenge](labs/week3-pet-challenge/README.md)
+  * [Week 4 - Arrays](labs/week4-arrays/README.md)
+  * [Week 5 - Characters](labs/week5-characters/README.md)
 * **Assignments**
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
