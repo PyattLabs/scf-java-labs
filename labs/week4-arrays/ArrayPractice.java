@@ -1,5 +1,5 @@
 /**
- * Lab 2: Array Practice
+ * Week 4 Lab: Array Practice
  * 
  * COP2250 Java Programming
  * Kevin Pyatt, Ph.D. | Pyatt Labs
@@ -68,7 +68,7 @@ public class ArrayPractice {
         
         
         System.out.println();
-        System.out.println("--- Lab 2 Complete! ---");
+        System.out.println("--- Week 4 Lab Complete! ---");
         System.out.println("You're ready for Assignment 3: Rock-Paper-Scissors");
     }
 }
