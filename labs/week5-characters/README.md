@@ -7,7 +7,7 @@
 
 ## Objective
 
-Learn to work with the `char` data type and Character class methods. This lab prepares you for Assignment 4 (Vowel or Consonant Checker).
+Learn to work with the `char` data type and Character class methods. This prepares you for Assignment 4 (Vowel or Consonant Checker).
 
 ---
 
@@ -16,7 +16,6 @@ Learn to work with the `char` data type and Character class methods. This lab pr
 ### Reading a Character
 
 Scanner doesn't have `nextChar()`. Use this pattern:
-
 ```java
 Scanner input = new Scanner(System.in);
 System.out.print("Enter a character: ");
@@ -25,7 +24,6 @@ char ch = s.charAt(0);  // Get first character
 ```
 
 ### Character Class Methods
-
 ```java
 Character.isLetter(ch)      // true if a-z or A-Z
 Character.isDigit(ch)       // true if 0-9
@@ -36,7 +34,6 @@ Character.toLowerCase(ch)   // converts to lowercase
 ```
 
 ### Checking for Vowels
-
 ```java
 char lower = Character.toLowerCase(ch);
 if (lower == 'a' || lower == 'e' || lower == 'i' 
@@ -48,7 +45,6 @@ if (lower == 'a' || lower == 'e' || lower == 'i'
 ---
 
 ## Compile and Run
-
 ```bash
 javac CharacterPractice.java
 java CharacterPractice
