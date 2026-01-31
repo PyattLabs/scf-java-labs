@@ -60,7 +60,7 @@ java ArrayPractice
 
 ## Starter Code
 
-**[Download ArrayPractice.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/lab02-arrays/ArrayPractice.java)**
+**[Download ArrayPractice.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/week4-arrays/ArrayPractice.java)**
 
 Right-click → Save Link As
 

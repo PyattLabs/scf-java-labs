@@ -68,7 +68,7 @@ java CharacterPractice
 
 ## Starter Code
 
-**[Download CharacterPractice.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/lab03-characters/CharacterPractice.java)**
+**[Download CharacterPractice.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/week5-characters/CharacterPractice.java)**
 
 Right-click → Save Link As
 
