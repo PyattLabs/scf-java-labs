@@ -12,6 +12,9 @@
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
   * [Assignment 4 - Vowel](assignments/assignment4-vowel/assignment4-the-players.md)
 
+* Practice
+  * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java)
+
 * Docs
   * [Git Pull Instructions](docs/git-pull-instructions.md)
   * [Terminal Scavenger Hunt](docs/terminal-scavenger-hunt.md)
