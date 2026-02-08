@@ -21,6 +21,7 @@
   * [Bash Reference](docs/bash-pocket-reference.md)
   * [View as Website](docs/view-as-website.md)
   * [Linux Installation](docs/linux-installation-guide.md)
+  * [WSL Windows Guide](docs/wsl-windows-guide.md)
   * [File Structure Visual](docs/file-structure-visual.html)
 
 * [Slides](slides/README.md)
