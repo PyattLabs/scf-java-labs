@@ -1,0 +1,270 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title[Loops]{Loops}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 6}
+
+\begin{document}
+
+% TITLE SLIDE
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% OBJECTIVES
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Understand the three loop types: \texttt{while}, \texttt{do-while}, \texttt{for}
+  \item Recognize when to use each loop
+  \item Use sentinel values to control input
+  \item Accumulate totals and counts inside loops
+  \item Avoid infinite loops and off-by-one errors
+\end{itemize}
+\end{frame}
+
+% THE PROBLEM
+\section{Why Loops?}
+\begin{frame}[fragile]{The Problem: Repetition Without Loops}
+\textbf{Print ``Hello'' 5 times without a loop:}
+\begin{lstlisting}
+System.out.println("Hello");
+System.out.println("Hello");
+System.out.println("Hello");
+System.out.println("Hello");
+System.out.println("Hello");
+\end{lstlisting}
+\vspace{0.5cm}
+Now do it 1,000 times?
+
+\textbf{Loops let you repeat code without copying it.}
+\end{frame}
+
+% WHILE LOOP
+\section{while Loop}
+\begin{frame}[fragile]{The \texttt{while} Loop}
+\textbf{Syntax:}
+\begin{lstlisting}
+while (condition) {
+    // body executes while condition is true
+}
+\end{lstlisting}
+
+\textbf{Example --- count from 1 to 5:}
+\begin{lstlisting}
+int count = 1;
+while (count <= 5) {
+    System.out.println(count);
+    count++;
+}
+\end{lstlisting}
+
+\begin{itemize}
+  \item Checks condition \textbf{before} each iteration
+  \item Body may execute \textbf{zero} times
+  \item Must update the loop variable or you get an infinite loop
+\end{itemize}
+\end{frame}
+
+% SENTINEL VALUE
+\begin{frame}[fragile]{Sentinel Values}
+A \textbf{sentinel value} signals ``stop reading input.''
+
+\begin{lstlisting}
+System.out.print("Enter a number (0 to quit): ");
+int num = input.nextInt();
+
+while (num != 0) {
+    // process num
+    System.out.print("Enter a number (0 to quit): ");
+    num = input.nextInt();
+}
+\end{lstlisting}
+
+\begin{itemize}
+  \item The sentinel (0) is \textbf{not} processed as data
+  \item Read \textbf{before} the loop, then again at the \textbf{end} of the loop body
+  \item This is called a \textbf{priming read}
+\end{itemize}
+\end{frame}
+
+% DO-WHILE LOOP
+\section{do-while Loop}
+\begin{frame}[fragile]{The \texttt{do-while} Loop}
+\textbf{Syntax:}
+\begin{lstlisting}
+do {
+    // body executes at least once
+} while (condition);
+\end{lstlisting}
+
+\textbf{Example --- input validation:}
+\begin{lstlisting}
+int choice;
+do {
+    System.out.print("Enter 1, 2, or 3: ");
+    choice = input.nextInt();
+} while (choice < 1 || choice > 3);
+\end{lstlisting}
+
+\begin{itemize}
+  \item Checks condition \textbf{after} each iteration
+  \item Body always executes \textbf{at least once}
+  \item Great for menus and input validation
+\end{itemize}
+\end{frame}
+
+% FOR LOOP
+\section{for Loop}
+\begin{frame}[fragile]{The \texttt{for} Loop}
+\textbf{Syntax:}
+\begin{lstlisting}
+for (init; condition; update) {
+    // body
+}
+\end{lstlisting}
+
+\textbf{Example --- count from 1 to 5:}
+\begin{lstlisting}
+for (int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}
+\end{lstlisting}
+
+\textbf{All three parts in one line:}
+\begin{itemize}
+  \item \textbf{Init}: \texttt{int i = 1} --- runs once
+  \item \textbf{Condition}: \texttt{i <= 5} --- checked before each iteration
+  \item \textbf{Update}: \texttt{i++} --- runs after each iteration
+\end{itemize}
+\end{frame}
+
+% WHICH LOOP?
+\begin{frame}{Which Loop Should I Use?}
+\begin{table}
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Scenario} & \textbf{Loop} & \textbf{Why} \\
+\midrule
+Known count & \texttt{for} & Count is in the syntax \\
+Unknown count, may skip & \texttt{while} & Check before running \\
+Must run at least once & \texttt{do-while} & Check after running \\
+Sentinel-controlled & \texttt{while} & Priming read pattern \\
+Input validation & \texttt{do-while} & Must prompt at least once \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+\textbf{Rule of thumb:} If you know how many times --- \texttt{for}. \\
+If you don't --- \texttt{while} or \texttt{do-while}.
+\end{frame}
+
+% ACCUMULATORS AND COUNTERS
+\begin{frame}[fragile]{Accumulators and Counters}
+\textbf{Counter}: tracks how many times something happens. \\
+\textbf{Accumulator}: tracks a running total.
+
+\begin{lstlisting}
+int count = 0;
+double total = 0;
+
+// inside the loop:
+count++;           // counter
+total += value;    // accumulator
+\end{lstlisting}
+
+\textbf{Average pattern:}
+\begin{lstlisting}
+double average = total / count;
+\end{lstlisting}
+
+\begin{itemize}
+  \item Initialize \textbf{before} the loop
+  \item Update \textbf{inside} the loop
+  \item Use \textbf{after} the loop
+\end{itemize}
+\end{frame}
+
+% COMMON MISTAKES
+\begin{frame}[fragile]{Common Mistakes}
+\textbf{1. Infinite loop} --- forgetting to update:
+\begin{lstlisting}
+int i = 1;
+while (i <= 5) {
+    System.out.println(i);
+    // missing i++
+}
+\end{lstlisting}
+
+\textbf{2. Off-by-one error:}
+\begin{lstlisting}
+// Prints 0-4, not 1-5
+for (int i = 0; i < 5; i++) { ... }
+\end{lstlisting}
+
+\textbf{3. Semicolon after \texttt{for}:}
+\begin{lstlisting}
+for (int i = 0; i < 5; i++);  // empty loop!
+{
+    System.out.println(i);  // runs once
+}
+\end{lstlisting}
+\end{frame}
+
+% TODAY'S LAB
+\begin{frame}{Today's Lab}
+\textbf{Number Analyzer}
+\begin{itemize}
+  \item Read integers from the user until sentinel (0)
+  \item Count positive and negative numbers separately
+  \item Compute the running total
+  \item Calculate and display the average (excluding zeros)
+  \item Handle edge case: no numbers entered
+\end{itemize}
+\vspace{0.5cm}
+\textbf{Concepts used:} \texttt{while} loop, sentinel value, accumulators, counters, conditional logic inside a loop.
+\vspace{0.5cm}
+
+\textbf{Demonstrate working code before leaving!}
+\end{frame}
+
+\end{document}

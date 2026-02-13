@@ -6,11 +6,13 @@
   * [Week 3 - Pet Challenge](labs/week3-pet-challenge/README.md)
   * [Week 4 - Arrays](labs/week4-arrays/README.md)
   * [Week 5 - Characters](labs/week5-characters/README.md)
+  * [Week 6 - Loops](labs/week6-loops/README.md)
 
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
   * [Assignment 4 - Vowel](assignments/assignment4-vowel/assignment4-the-players.md)
+  * [Assignment 5 - Average](assignments/assignment5-average/assignment5-the-players.md)
 
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java)
