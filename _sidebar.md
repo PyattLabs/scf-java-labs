@@ -7,12 +7,14 @@
   * [Week 5 - Characters](labs/week5-characters/README.md)
   * [Week 6 - Loops](labs/week6-loops/README.md)
   * [Week 7 - Methods](labs/week7-methods/README.md)
+  * [Week 8 - Arrays](labs/week8-arrays/README.md)
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
   * [Assignment 4 - Vowel](assignments/assignment4-vowel/assignment4-the-players.md)
   * [Assignment 5 - Average](assignments/assignment5-average/assignment5-the-players.md)
   * [Assignment 6 - Sort](assignments/assignment6-sort/assignment6-the-players.md)
+  * [Assignment 7 - Grades](assignments/assignment7-grades/assignment7-the-players.md)
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
 * Docs

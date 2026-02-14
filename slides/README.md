@@ -8,3 +8,4 @@
 | 5 | Math, Characters & Strings | [week5-math-chars-strings.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week5-math-chars-strings.pdf) |
 | 6 | Loops | [week6-loops.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week6-loops.pdf) |
 | 7 | Methods | [week7-methods.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week7-methods.pdf) |
+| 8 | Single-Dim Arrays | [week8-arrays.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week8-arrays.pdf) |
