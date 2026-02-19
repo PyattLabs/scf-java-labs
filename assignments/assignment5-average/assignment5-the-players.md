@@ -105,3 +105,13 @@ if (count == 0) {
 ---
 
 *This assignment is instructor-authored intellectual property.*
+
+---
+
+## Starter Code (The Script)
+
+**[Download PositiveNegativeAverage.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment5-average/PositiveNegativeAverage.java)**
+
+Right-click → Save Link As
+
+---
