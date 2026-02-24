@@ -1,0 +1,296 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\title[Methods]{Methods}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 7}
+
+\begin{document}
+
+% TITLE SLIDE
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% OBJECTIVES
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Define and call methods
+  \item Understand parameters and return values
+  \item Distinguish \texttt{void} methods from value-returning methods
+  \item Use method overloading
+  \item Understand variable scope
+  \item Apply the divide-and-conquer approach to problem solving
+\end{itemize}
+\end{frame}
+
+% WHY METHODS?
+\section{Why Methods?}
+\begin{frame}{Why Methods?}
+\textbf{Without methods:}
+\begin{itemize}
+  \item Code duplication everywhere
+  \item Hard to read, hard to debug
+  \item Changes require editing multiple places
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{With methods:}
+\begin{itemize}
+  \item Write once, call many times
+  \item Each method does \textbf{one thing}
+  \item Easier to test and debug
+  \item Code reads like a story
+\end{itemize}
+
+\vspace{0.5cm}
+\textit{Think of methods as tools in a toolbox --- you build them once and reach for them when needed.}
+\end{frame}
+
+% ANATOMY
+\section{Method Anatomy}
+\begin{frame}[fragile]{Anatomy of a Method}
+\begin{lstlisting}
+public static int add(int a, int b) {
+    int sum = a + b;
+    return sum;
+}
+\end{lstlisting}
+
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\texttt{public static} & Modifiers (we'll explore these later) \\
+\texttt{int} & Return type \\
+\texttt{add} & Method name \\
+\texttt{(int a, int b)} & Parameters \\
+\texttt{return sum;} & Return statement \\
+\end{tabular}
+
+\vspace{0.3cm}
+\textbf{Rule:} Return type must match what you actually return.
+\end{frame}
+
+% CALLING METHODS
+\begin{frame}[fragile]{Calling a Method}
+\begin{lstlisting}
+public static void main(String[] args) {
+    int result = add(5, 3);
+    System.out.println(result); // 8
+
+    // Can also use directly
+    System.out.println(add(10, 20)); // 30
+}
+
+public static int add(int a, int b) {
+    return a + b;
+}
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Key points:}
+\begin{itemize}
+  \item Arguments are \textbf{copied} into parameters (pass by value)
+  \item Method can be defined before or after \texttt{main}
+  \item Return value can be stored or used directly
+\end{itemize}
+\end{frame}
+
+% VOID METHODS
+\section{Void Methods}
+\begin{frame}[fragile]{Void Methods}
+\begin{lstlisting}
+public static void printGrade(int score) {
+    if (score >= 90)
+        System.out.println("A");
+    else if (score >= 80)
+        System.out.println("B");
+    else
+        System.out.println("Below B");
+}
+\end{lstlisting}
+
+\vspace{0.3cm}
+\begin{itemize}
+  \item \texttt{void} = this method does NOT return a value
+  \item It \textbf{does something} (prints, modifies, etc.)
+  \item You \textbf{cannot} assign a void method to a variable
+  \item \texttt{return;} can be used to exit early (optional)
+\end{itemize}
+
+\vspace{0.3cm}
+\texttt{printGrade(85);} \quad \checkmark \\
+\texttt{int x = printGrade(85);} \quad \texttimes \quad (compiler error)
+\end{frame}
+
+% PARAMETERS AND ARGUMENTS
+\begin{frame}[fragile]{Parameters vs. Arguments}
+\begin{lstlisting}
+// "a" and "b" are PARAMETERS (placeholders)
+public static int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+// 5 and 3 are ARGUMENTS (actual values)
+int biggest = max(5, 3);
+\end{lstlisting}
+
+\vspace{0.5cm}
+\begin{tabular}{ll}
+\textbf{Parameter} & Variable in the method signature \\
+\textbf{Argument} & Value passed when calling the method \\
+\end{tabular}
+
+\vspace{0.3cm}
+\textbf{Arguments must match parameters in order, number, and compatible type.}
+\end{frame}
+
+% OVERLOADING
+\section{Method Overloading}
+\begin{frame}[fragile]{Method Overloading}
+\begin{lstlisting}
+public static int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+public static double max(double a, double b) {
+    return (a > b) ? a : b;
+}
+
+public static int max(int a, int b, int c) {
+    return max(max(a, b), c);
+}
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{Same name, different parameter lists.} \\
+Java picks the right version based on arguments. \\
+
+\vspace{0.2cm}
+\textbf{Not overloading:} changing only the return type.
+\end{frame}
+
+% SCOPE
+\section{Variable Scope}
+\begin{frame}[fragile]{Variable Scope}
+\begin{lstlisting}
+public static void main(String[] args) {
+    int x = 10;
+    doSomething();
+    System.out.println(x); // still 10
+}
+
+public static void doSomething() {
+    int x = 99; // different x!
+    System.out.println(x); // 99
+}
+\end{lstlisting}
+
+\vspace{0.3cm}
+\begin{itemize}
+  \item Variables declared inside a method are \textbf{local} to that method
+  \item Each method has its own \textbf{scope}
+  \item Same variable name in different methods = different variables
+  \item Parameters are also local variables
+\end{itemize}
+\end{frame}
+
+% DESIGN PRINCIPLES
+\begin{frame}{Method Design Principles}
+\begin{enumerate}
+  \item \textbf{One job per method} --- if you need ``and'' to describe it, split it
+  \item \textbf{Descriptive names} --- \texttt{calculateTax()} not \texttt{doStuff()}
+  \item \textbf{Keep methods short} --- if it scrolls, break it up
+  \item \textbf{Minimize parameters} --- 3 or fewer is ideal
+  \item \textbf{Return don't print} --- let the caller decide what to do with the result
+\end{enumerate}
+
+\vspace{0.5cm}
+\textit{``A method should do one thing, do it well, and do it only.'' --- Clean Code}
+\end{frame}
+
+% COMMON MISTAKES
+\begin{frame}[fragile]{Common Mistakes}
+\textbf{1. Forgetting to return:}
+\begin{lstlisting}
+public static int square(int n) {
+    int result = n * n;
+    // missing return result;
+}
+\end{lstlisting}
+
+\vspace{0.2cm}
+\textbf{2. Ignoring the return value:}
+\begin{lstlisting}
+add(5, 3); // result goes nowhere
+\end{lstlisting}
+
+\vspace{0.2cm}
+\textbf{3. Wrong argument types/order:}
+\begin{lstlisting}
+// Method expects (String, int)
+printInfo(25, "Alice"); // WRONG ORDER
+\end{lstlisting}
+
+\vspace{0.2cm}
+\textbf{4. Trying to access local variables from another method}
+\end{frame}
+
+% WRAP UP
+\begin{frame}{Assignment 6: Sort Three Numbers}
+\textbf{Exercise 6.5:} Write a method:
+\begin{itemize}
+  \item \texttt{displaySortedNumbers(double, double, double)}
+  \item Takes three numbers, displays them in increasing order
+  \item \texttt{main} prompts user, calls the method
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Lab: MethodPractice}
+\begin{itemize}
+  \item Build utility methods step by step
+  \item Practice \texttt{void} and value-returning methods
+  \item Apply method design principles
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Next Week:} Single-Dimensional Arrays (Chapter 7)
+\end{frame}
+
+\end{document}
