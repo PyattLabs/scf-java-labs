@@ -52,138 +52,141 @@
 % OBJECTIVES
 \begin{frame}{Today's Objectives}
 \begin{itemize}
-  \item Define and call methods
-  \item Understand parameters and return values
+  \item Understand what methods are and why we use them
+  \item Define methods with parameters and return values
   \item Distinguish \texttt{void} methods from value-returning methods
-  \item Use method overloading
-  \item Understand variable scope
-  \item Apply the divide-and-conquer approach to problem solving
+  \item Call methods and pass arguments
+  \item Understand method signatures and overloading
+  \item Apply the \textbf{divide and conquer} principle
 \end{itemize}
 \end{frame}
 
-% WHY METHODS?
+% THE PROBLEM
 \section{Why Methods?}
-\begin{frame}{Why Methods?}
-\textbf{Without methods:}
-\begin{itemize}
-  \item Code duplication everywhere
-  \item Hard to read, hard to debug
-  \item Changes require editing multiple places
-\end{itemize}
+\begin{frame}[fragile]{The Problem: Copy-Paste Code}
+\textbf{What if you need the same logic in 5 places?}
+\begin{lstlisting}
+// Find max of two numbers... again
+int max1;
+if (a > b) max1 = a; else max1 = b;
 
-\vspace{0.5cm}
-\textbf{With methods:}
+// Same logic, different variables
+int max2;
+if (x > y) max2 = x; else max2 = y;
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Problems:}
 \begin{itemize}
-  \item Write once, call many times
-  \item Each method does \textbf{one thing}
-  \item Easier to test and debug
-  \item Code reads like a story
+  \item Duplicate code everywhere
+  \item Fix a bug? Fix it in 5 places
+  \item Hard to read, hard to maintain
 \end{itemize}
-
-\vspace{0.5cm}
-\textit{Think of methods as tools in a toolbox --- you build them once and reach for them when needed.}
+\vspace{0.3cm}
+\textbf{Methods let you write it once, call it anywhere.}
 \end{frame}
 
-% ANATOMY
-\section{Method Anatomy}
+% ANATOMY OF A METHOD
+\section{Defining Methods}
 \begin{frame}[fragile]{Anatomy of a Method}
 \begin{lstlisting}
-public static int add(int a, int b) {
-    int sum = a + b;
-    return sum;
+public static int max(int num1, int num2) {
+    if (num1 > num2) {
+        return num1;
+    } else {
+        return num2;
+    }
 }
 \end{lstlisting}
 
-\vspace{0.3cm}
+\begin{table}
+\centering
 \begin{tabular}{ll}
-\texttt{public static} & Modifiers (we'll explore these later) \\
+\toprule
+\textbf{Part} & \textbf{Meaning} \\
+\midrule
+\texttt{public static} & Modifiers (we'll use these for now) \\
 \texttt{int} & Return type \\
-\texttt{add} & Method name \\
-\texttt{(int a, int b)} & Parameters \\
-\texttt{return sum;} & Return statement \\
+\texttt{max} & Method name \\
+\texttt{(int num1, int num2)} & Parameters \\
+\texttt{return num1;} & Return statement \\
+\bottomrule
 \end{tabular}
-
-\vspace{0.3cm}
-\textbf{Rule:} Return type must match what you actually return.
-\end{frame}
-
-% CALLING METHODS
-\begin{frame}[fragile]{Calling a Method}
-\begin{lstlisting}
-public static void main(String[] args) {
-    int result = add(5, 3);
-    System.out.println(result); // 8
-
-    // Can also use directly
-    System.out.println(add(10, 20)); // 30
-}
-
-public static int add(int a, int b) {
-    return a + b;
-}
-\end{lstlisting}
-
-\vspace{0.3cm}
-\textbf{Key points:}
-\begin{itemize}
-  \item Arguments are \textbf{copied} into parameters (pass by value)
-  \item Method can be defined before or after \texttt{main}
-  \item Return value can be stored or used directly
-\end{itemize}
+\end{table}
 \end{frame}
 
 % VOID METHODS
-\section{Void Methods}
-\begin{frame}[fragile]{Void Methods}
+\begin{frame}[fragile]{\texttt{void} Methods}
+A method that does something but \textbf{returns nothing}.
+
 \begin{lstlisting}
-public static void printGrade(int score) {
-    if (score >= 90)
-        System.out.println("A");
-    else if (score >= 80)
-        System.out.println("B");
-    else
-        System.out.println("Below B");
+public static void printGreeting(String name) {
+    System.out.println("Hello, " + name + "!");
 }
 \end{lstlisting}
 
-\vspace{0.3cm}
+\textbf{Calling it:}
+\begin{lstlisting}
+printGreeting("Kevin");  // prints: Hello, Kevin!
+\end{lstlisting}
+
 \begin{itemize}
-  \item \texttt{void} = this method does NOT return a value
-  \item It \textbf{does something} (prints, modifies, etc.)
-  \item You \textbf{cannot} assign a void method to a variable
-  \item \texttt{return;} can be used to exit early (optional)
+  \item Return type is \texttt{void} --- no return value
+  \item You \textbf{call} it as a statement, not in an expression
+  \item Used for: printing, display, side effects
+\end{itemize}
+\end{frame}
+
+% VALUE-RETURNING METHODS
+\begin{frame}[fragile]{Value-Returning Methods}
+A method that computes and \textbf{sends back} a result.
+
+\begin{lstlisting}
+public static double celsiusToFahrenheit(double c) {
+    return (9.0 / 5) * c + 32;
+}
+\end{lstlisting}
+
+\textbf{Calling it:}
+\begin{lstlisting}
+double temp = celsiusToFahrenheit(100);
+System.out.println(temp);  // 212.0
+\end{lstlisting}
+
+\begin{itemize}
+  \item Return type matches what \texttt{return} sends back
+  \item You \textbf{use} the result --- assign it, print it, pass it
+  \item Every path through the method must hit a \texttt{return}
+\end{itemize}
+\end{frame}
+
+% CALLING METHODS
+\section{Calling Methods}
+\begin{frame}[fragile]{Arguments vs Parameters}
+\begin{lstlisting}
+// DEFINITION: num1 and num2 are PARAMETERS
+public static int max(int num1, int num2) {
+    return (num1 > num2) ? num1 : num2;
+}
+
+// CALL: 5 and 3 are ARGUMENTS
+int result = max(5, 3);
+\end{lstlisting}
+
+\begin{itemize}
+  \item \textbf{Parameters}: variables in the method header (placeholders)
+  \item \textbf{Arguments}: actual values you pass when calling
+  \item Arguments must match parameters in \textbf{order, number, and compatible type}
 \end{itemize}
 
 \vspace{0.3cm}
-\texttt{printGrade(85);} \quad \checkmark \\
-\texttt{int x = printGrade(85);} \quad \texttimes \quad (compiler error)
+\textbf{Think of it like a function in math:} $f(x) = x^2$ \\
+$x$ is the parameter. $f(3) = 9$ --- 3 is the argument.
 \end{frame}
 
-% PARAMETERS AND ARGUMENTS
-\begin{frame}[fragile]{Parameters vs. Arguments}
-\begin{lstlisting}
-// "a" and "b" are PARAMETERS (placeholders)
-public static int max(int a, int b) {
-    return (a > b) ? a : b;
-}
-
-// 5 and 3 are ARGUMENTS (actual values)
-int biggest = max(5, 3);
-\end{lstlisting}
-
-\vspace{0.5cm}
-\begin{tabular}{ll}
-\textbf{Parameter} & Variable in the method signature \\
-\textbf{Argument} & Value passed when calling the method \\
-\end{tabular}
-
-\vspace{0.3cm}
-\textbf{Arguments must match parameters in order, number, and compatible type.}
-\end{frame}
-
-% OVERLOADING
-\section{Method Overloading}
+% METHOD OVERLOADING
 \begin{frame}[fragile]{Method Overloading}
+Same name, \textbf{different parameters}.
+
 \begin{lstlisting}
 public static int max(int a, int b) {
     return (a > b) ? a : b;
@@ -198,56 +201,39 @@ public static int max(int a, int b, int c) {
 }
 \end{lstlisting}
 
-\vspace{0.3cm}
-\textbf{Same name, different parameter lists.} \\
-Java picks the right version based on arguments. \\
-
-\vspace{0.2cm}
-\textbf{Not overloading:} changing only the return type.
-\end{frame}
-
-% SCOPE
-\section{Variable Scope}
-\begin{frame}[fragile]{Variable Scope}
-\begin{lstlisting}
-public static void main(String[] args) {
-    int x = 10;
-    doSomething();
-    System.out.println(x); // still 10
-}
-
-public static void doSomething() {
-    int x = 99; // different x!
-    System.out.println(x); // 99
-}
-\end{lstlisting}
-
-\vspace{0.3cm}
 \begin{itemize}
-  \item Variables declared inside a method are \textbf{local} to that method
-  \item Each method has its own \textbf{scope}
-  \item Same variable name in different methods = different variables
-  \item Parameters are also local variables
+  \item Java picks the right version based on arguments
+  \item Overloading = same name, different \textbf{signature}
+  \item Signature = method name + parameter types
+  \item Return type alone does NOT distinguish methods
 \end{itemize}
 \end{frame}
 
-% DESIGN PRINCIPLES
-\begin{frame}{Method Design Principles}
-\begin{enumerate}
-  \item \textbf{One job per method} --- if you need ``and'' to describe it, split it
-  \item \textbf{Descriptive names} --- \texttt{calculateTax()} not \texttt{doStuff()}
-  \item \textbf{Keep methods short} --- if it scrolls, break it up
-  \item \textbf{Minimize parameters} --- 3 or fewer is ideal
-  \item \textbf{Return don't print} --- let the caller decide what to do with the result
-\end{enumerate}
+% SCOPE
+\begin{frame}[fragile]{Variable Scope}
+Variables declared inside a method are \textbf{local} to that method.
 
-\vspace{0.5cm}
-\textit{``A method should do one thing, do it well, and do it only.'' --- Clean Code}
+\begin{lstlisting}
+public static void methodA() {
+    int x = 10;  // x lives here only
+}
+
+public static void methodB() {
+    System.out.println(x);  // ERROR: x not found
+}
+\end{lstlisting}
+
+\begin{itemize}
+  \item Local variables are created when the method is called
+  \item They are destroyed when the method returns
+  \item Two methods can have variables with the same name --- they are \textbf{different variables}
+  \item Pass data between methods via \textbf{parameters and return values}
+\end{itemize}
 \end{frame}
 
 % COMMON MISTAKES
 \begin{frame}[fragile]{Common Mistakes}
-\textbf{1. Forgetting to return:}
+\textbf{1. Forgetting \texttt{return}:}
 \begin{lstlisting}
 public static int square(int n) {
     int result = n * n;
@@ -255,42 +241,44 @@ public static int square(int n) {
 }
 \end{lstlisting}
 
-\vspace{0.2cm}
-\textbf{2. Ignoring the return value:}
+\textbf{2. Calling void method in expression:}
 \begin{lstlisting}
-add(5, 3); // result goes nowhere
+int x = printGreeting("Kevin"); // ERROR
 \end{lstlisting}
 
-\vspace{0.2cm}
-\textbf{3. Wrong argument types/order:}
+\textbf{3. Wrong argument types:}
 \begin{lstlisting}
-// Method expects (String, int)
-printInfo(25, "Alice"); // WRONG ORDER
+max("hello", "world"); // expects int, not String
 \end{lstlisting}
 
-\vspace{0.2cm}
-\textbf{4. Trying to access local variables from another method}
+\textbf{4. Defining a method inside another method:}
+\begin{lstlisting}
+public static void main(String[] args) {
+    public static void broken() { } // ERROR
+}
+\end{lstlisting}
 \end{frame}
 
-% WRAP UP
-\begin{frame}{Assignment 6: Sort Three Numbers}
-\textbf{Exercise 6.5:} Write a method:
+% TODAY'S LAB
+\begin{frame}{Today's Lab + Walkthrough}
+\textbf{Method Practice Lab}
 \begin{itemize}
-  \item \texttt{displaySortedNumbers(double, double, double)}
-  \item Takes three numbers, displays them in increasing order
-  \item \texttt{main} prompts user, calls the method
+  \item Write a \texttt{void} method that prints a grade from a score
+  \item Write a value-returning method that finds max of three numbers
+  \item Write a method that checks if a number is even
+  \item Call each method from \texttt{main} with user input
 \end{itemize}
+\vspace{0.3cm}
+\textbf{Assignment 6:} Write \texttt{displaySortedNumbers(double, double, double)} --- sort and display three numbers in increasing order.
+\vspace{0.3cm}
 
-\vspace{0.5cm}
-\textbf{Lab: MethodPractice}
+\textbf{Last 15 minutes: Code Walkthrough} \\
 \begin{itemize}
-  \item Build utility methods step by step
-  \item Practice \texttt{void} and value-returning methods
-  \item Apply method design principles
+  \item Screen-share your code
+  \item Walk me through it line by line
+  \item Explain \textit{why}, not just \textit{what}
+  \item No working code = no credit
 \end{itemize}
-
-\vspace{0.5cm}
-\textbf{Next Week:} Single-Dimensional Arrays (Chapter 7)
 \end{frame}
 
 \end{document}
