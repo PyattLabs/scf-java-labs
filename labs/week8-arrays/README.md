@@ -10,6 +10,8 @@ Build a set of array utility methods to practice declaring, filling, and process
 - Search arrays for a value
 - Use `length` property correctly
 
+## Starter Code
+[Download ArrayPractice.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/labs/week8-arrays/ArrayPractice.java)
 ## Setup
 ```bash
 cd ~/scf-java-labs/labs/week8-arrays

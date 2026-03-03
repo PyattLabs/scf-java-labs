@@ -75,6 +75,8 @@ Student 3 score is 58 and grade is B
 
 ---
 
+## 📜 The Script (Starter Code)
+[Download GradeByBestScore.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment7-grades/GradeByBestScore.java)
 ## ⚠️ Watch Out For
 
 1. **Two passes through the array** — first to find the best, second to assign grades
