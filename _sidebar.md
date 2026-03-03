@@ -14,10 +14,11 @@
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
   * [Assignment 4 - Vowel](assignments/assignment4-vowel/assignment4-the-players.md)
   * [Assignment 5 - Average](assignments/assignment5-average/assignment5-the-players.md)
-  * [Assignment 6 - Sorted](assignments/assignment6-sorted/assignment6-the-players.md)
+  * [Assignment 6 - Sort](assignments/assignment6-sort/assignment6-the-players.md)
 
 * Practice
-  * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java)
+  * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
+  * [Week 7 Picker](practice/COP2250_Week7_Picker.java ':ignore')
 
 * Docs
   * [Git Pull Instructions](docs/git-pull-instructions.md)
