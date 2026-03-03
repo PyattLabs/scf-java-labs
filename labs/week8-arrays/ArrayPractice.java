@@ -97,4 +97,19 @@ public class ArrayPractice {
         //   input.close();
 
     }
+
+    // ========================================
+    // DONE? YOU'RE READY FOR ASSIGNMENT 7
+    // ========================================
+    // Once this lab compiles and runs correctly,
+    // move on to Assignment 7: Grade by Curve
+    //
+    // cd ~/scf-java-labs/assignments/assignment7-grades
+    // micro GradeByBestScore.java
+    //
+    // You'll use the same skills:
+    //   - Create an array from user input
+    //   - Loop to find the max (best score)
+    //   - Loop again to assign grades on a curve
+    // ========================================
 }
