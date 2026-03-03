@@ -78,3 +78,11 @@ Contains 99.0: false
 - **length**: number of elements (NOT last index)
 - **Off-by-one**: using `<=` instead of `<` in loop condition causes crash
 - **Default values**: `double` arrays initialize to 0.0
+
+---
+
+## What's Next?
+
+Once you've completed this lab and demonstrated it to the instructor, you're ready for **Assignment 7: Grade by Curve**. You'll use the same array skills — declaring, filling from input, looping to find a max, and looping again to process each element.
+
+[Go to Assignment 7 →](../../assignments/assignment7-grades/assignment7-the-players.md)
