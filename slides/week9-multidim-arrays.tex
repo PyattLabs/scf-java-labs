@@ -1,0 +1,209 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Multi-Dim Arrays]{Multi-Dimensional Arrays}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 9}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Declare and create two-dimensional arrays
+  \item Access elements using row and column indices
+  \item Use \texttt{m.length} and \texttt{m[0].length} correctly
+  \item Traverse a matrix with nested loops
+  \item Sum rows and columns using fixed-index traversal
+  \item Pass 2D arrays to methods
+\end{itemize}
+\end{frame}
+\section{From 1D to 2D}
+\begin{frame}[fragile]{From One Row to a Grid}
+\textbf{Last week:} one row of values
+\begin{lstlisting}
+double[] scores = new double[5];
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{This week:} a grid of values (matrix)
+\begin{lstlisting}
+double[][] m = new double[3][4];
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{tabular}{ccccc}
+ & col 0 & col 1 & col 2 & col 3 \\
+\textbf{row 0} & 1.0 & 2.0 & 3.0 & 4.0 \\
+\textbf{row 1} & 5.0 & 6.0 & 7.0 & 8.0 \\
+\textbf{row 2} & 9.0 & 10.0 & 11.0 & 12.0 \\
+\end{tabular}
+\vspace{0.3cm}
+\textit{Think spreadsheet. Rows and columns. Row first, column second. Always.}
+\end{frame}
+\section{Array Basics}
+\begin{frame}[fragile]{Declaring and Creating 2D Arrays}
+\begin{lstlisting}
+// Declare and create (all values default to 0.0)
+double[][] m = new double[3][4];
+
+// Declare and initialize with values
+int[][] grid = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\texttt{m.length} & Number of \textbf{rows} (3) \\
+\texttt{m[0].length} & Number of \textbf{columns} (4) \\
+\texttt{m[i][j]} & Element at row \texttt{i}, column \texttt{j} \\
+\end{tabular}
+\vspace{0.3cm}
+\textit{Row first. Column second. Every time.}
+\end{frame}
+\section{Processing Arrays}
+\begin{frame}[fragile]{Nested Loops for 2D Arrays}
+\textbf{One loop for one dimension. Two loops for two.}
+\begin{lstlisting}
+for (int i = 0; i < m.length; i++) {        // rows
+    for (int j = 0; j < m[0].length; j++) { // columns
+        System.out.printf("%6.1f", m[i][j]);
+    }
+    System.out.println();
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item Outer loop = rows (\texttt{i})
+  \item Inner loop = columns (\texttt{j})
+  \item Element = \texttt{m[i][j]}
+\end{itemize}
+\vspace{0.2cm}
+\textit{Every time you see a 2D array, think: nested loop.}
+\end{frame}
+\begin{frame}[fragile]{Traversing a Row vs a Column}
+\textbf{Sum a row} --- fix the row, loop the columns:
+\begin{lstlisting}
+double sum = 0;
+for (int j = 0; j < m[0].length; j++) {
+    sum += m[rowIndex][j];
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Sum a column} --- fix the column, loop the rows:
+\begin{lstlisting}
+double sum = 0;
+for (int i = 0; i < m.length; i++) {
+    sum += m[i][columnIndex];
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Key rule:} To sum a column, the column index is \textbf{FIXED}. The row index \textbf{loops}.\\
+\vspace{0.2cm}
+\textit{Write it down. This is your assignment.}
+\end{frame}
+\begin{frame}[fragile]{The sumColumn Method}
+\textbf{Required header (use exactly):}
+\begin{lstlisting}
+public static double sumColumn(double[][] m, int columnIndex)
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Implementation:}
+\begin{lstlisting}
+public static double sumColumn(double[][] m, int columnIndex) {
+    double sum = 0;
+    for (int i = 0; i < m.length; i++) {
+        sum += m[i][columnIndex];
+    }
+    return sum;
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Usage in main:}
+\begin{lstlisting}
+for (int col = 0; col < m[0].length; col++) {
+    System.out.println("Sum of column " + col
+        + " is " + sumColumn(m, col));
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]{Common Mistakes}
+\textbf{1. Using m.length for columns:}
+\begin{lstlisting}
+for (int j = 0; j < m.length; j++)      // WRONG
+for (int j = 0; j < m[0].length; j++)   // CORRECT
+\end{lstlisting}
+\vspace{0.2cm}
+\textbf{2. Swapping row and column in access:}
+\begin{lstlisting}
+sum += m[columnIndex][i];  // WRONG
+sum += m[i][columnIndex];  // CORRECT
+\end{lstlisting}
+\vspace{0.2cm}
+\textbf{3. Initializing max to 0:}
+\begin{lstlisting}
+double max = 0;       // WRONG if all values negative
+double max = m[0][0]; // CORRECT
+\end{lstlisting}
+\vspace{0.2cm}
+\textbf{4. Off-by-one in nested loop:}
+\begin{lstlisting}
+for (int i = 0; i <= m.length; i++)  // CRASH
+for (int i = 0; i < m.length; i++)   // CORRECT
+\end{lstlisting}
+\end{frame}
+\begin{frame}{Assignment 8: Sum of Columns}
+\textbf{Exercise 8.1:} Write a program that:
+\begin{itemize}
+  \item Implements \texttt{sumColumn(double[][] m, int columnIndex)}
+  \item Reads a 3-by-4 matrix from the user
+  \item Displays the sum of each column
+\end{itemize}
+\vspace{0.4cm}
+\textbf{Sample output:}\\
+\texttt{Sum of column 0 is 15.0}\\
+\texttt{Sum of column 1 is 18.0}\\
+\texttt{Sum of column 2 is 21.0}\\
+\texttt{Sum of column 3 is 24.0}
+\vspace{0.4cm}
+\textbf{Lab: MatrixPractice}
+\begin{itemize}
+  \item Build matrix utility methods: fill, print, sumRow, sumColumn, total, max
+\end{itemize}
+\vspace{0.3cm}
+\textbf{Next Week:} Objects and Classes (Chapter 9)
+\end{frame}
+\end{document}
