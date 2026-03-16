@@ -1,56 +1,101 @@
 /**
- * Assignment 8: Sum of Columns in a Matrix
- *
- * COP2250 Java Programming
- * Kevin Pyatt, Ph.D. | Pyatt Labs
+ * SumColumn.java
+ * COP2250 - Assignment 8 (Exercise 8.1)
  *
  * Write a method that returns the sum of all elements in a
  * specified column in a matrix. Write a test program that
  * reads a 3-by-4 matrix and displays the sum of each column.
+ *
+ * DIRECTIONS: Follow each STEP below. Do them in order.
+ *             Compile and test after each STEP.
  */
 
 import java.util.Scanner;
 
 public class SumColumn {
 
-    // ============================================
-    // ACT 1: THE METHOD
-    // ============================================
-
-    // TODO 1: Write the sumColumn method using this exact header:
+    // ========================================
+    // STEP 1: Write the sumColumn method
+    // ========================================
+    // Use this exact header:
     //
-    //         public static double sumColumn(double[][] m, int columnIndex)
-    //
-    //         STEP 1a: Declare a double variable called "sum" and set it to 0
-    //         STEP 1b: Loop from i = 0 to i < m.length (loop over ROWS)
-    //         STEP 1c: Inside the loop: add m[i][columnIndex] to sum
-    //         STEP 1d: After the loop: return sum
+    // public static double sumColumn(double[][] m, int columnIndex) {
+    //     double sum = 0;
+    //     for (int i = 0; i < m.length; i++) {
+    //         sum += m[i][columnIndex];
+    //     }
+    //     return sum;
+    // }
 
-
-    // ============================================
-    // ACT 2: READ THE MATRIX
-    // ============================================
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
 
-        // TODO 2: Declare a 3-by-4 double 2D array called "m"
-        //         STEP 2a: double[][] m = new double[3][4];
+        // STEP 2: Create a Scanner
+        // Scanner input = new Scanner(System.in);
 
-        // TODO 3: Prompt the user and read values into the matrix
-        //         STEP 3a: Print "Enter a 3-by-4 matrix row by row:"
-        //         STEP 3b: Use a nested loop (outer = rows, inner = cols)
-        //         STEP 3c: Inside the inner loop: m[i][j] = input.nextDouble();
 
-        // ============================================
-        // ACT 3: DISPLAY COLUMN SUMS
-        // ============================================
+        // STEP 3: Declare a 3-by-4 matrix
+        // double[][] m = new double[3][4];
 
-        // TODO 4: Loop over each column (0 through 3)
-        //         STEP 4a: for (int col = 0; col < 4; col++)
-        //         STEP 4b: Call sumColumn(m, col) and store the result
-        //         STEP 4c: Print: "Sum of column X is Y.0"
 
-        input.close();
+        // STEP 4: Prompt and read the matrix row by row
+        // System.out.println("Enter a 3-by-4 matrix row by row:");
+        // for (int i = 0; i < m.length; i++) {
+        //     for (int j = 0; j < m[0].length; j++) {
+        //         m[i][j] = input.nextDouble();
+        //     }
+        // }
+
+
+        // STEP 5: Display the sum of each column
+        // for (int col = 0; col < m[0].length; col++) {
+        //     System.out.println("Sum of column " + col + " is " + sumColumn(m, col));
+        // }
+
+
+        // STEP 6: Close the Scanner
+        // input.close();
+
     }
+
+    // ========================================
+    // STEP 7: Compile and test
+    // ========================================
+    // javac SumColumn.java
+    // java SumColumn
+    //
+    // Test case 1:
+    //   Enter a 3-by-4 matrix row by row:
+    //   1 2 3 4
+    //   5 6 7 8
+    //   9 10 11 12
+    //   Expected:
+    //     Sum of column 0 is 15.0
+    //     Sum of column 1 is 18.0
+    //     Sum of column 2 is 21.0
+    //     Sum of column 3 is 24.0
+    //
+    // Test case 2:
+    //   Enter a 3-by-4 matrix row by row:
+    //   0 1 2 3
+    //   0 1 2 3
+    //   0 1 2 3
+    //   Expected:
+    //     Sum of column 0 is 0.0
+    //     Sum of column 1 is 3.0
+    //     Sum of column 2 is 6.0
+    //     Sum of column 3 is 9.0
+
+    // ========================================
+    // STEP 8: Add a header comment
+    // ========================================
+    // Your name, date, description
+
+    // ========================================
+    // STEP 9: Push to your repo
+    // ========================================
+    // git add SumColumn.java
+    // git commit -m "Assignment 8 - Sum Column"
+    // git push
+
 }
