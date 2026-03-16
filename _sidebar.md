@@ -1,5 +1,4 @@
 * [Home](/)
-
 * Labs
   * [Week 1 - Java Fundamentals](labs/week1-java-fundamentals/README.md)
   * [Week 2 - Pet Challenge](labs/week2-pet-challenge/README.md)
@@ -9,7 +8,7 @@
   * [Week 6 - Loops](labs/week6-loops/README.md)
   * [Week 7 - Methods](labs/week7-methods/README.md)
   * [Week 8 - Arrays](labs/week8-arrays/README.md)
-
+  * [Week 9 - Multi-Dim Arrays](labs/week9-multidim-arrays/README.md)
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
@@ -17,13 +16,9 @@
   * [Assignment 5 - Average](assignments/assignment5-average/assignment5-the-players.md)
   * [Assignment 6 - Sort](assignments/assignment6-sort/assignment6-the-players.md)
   * [Assignment 7 - Grades](assignments/assignment7-grades/assignment7-the-players.md)
-
+  * [Assignment 8 - Sum Column](assignments/assignment8-sumcolumn/assignment8-the-players.md)
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
-  * [Week 7 Quiz](practice/COP2250_Week7_Quiz.java ':ignore')
-  * [Week 7 Picker](practice/COP2250_Week7_Picker.java ':ignore')
-  * [Midterm Practice](practice/COP2250_Midterm_Practice.java ':ignore')
-
 * Docs
   * [Git Pull Instructions](docs/git-pull-instructions.md)
   * [Terminal Scavenger Hunt](docs/terminal-scavenger-hunt.md)
@@ -32,5 +27,4 @@
   * [Linux Installation](docs/linux-installation-guide.md)
   * [WSL Windows Guide](docs/wsl-windows-guide.md)
   * [File Structure Visual](docs/file-structure-visual.html)
-
 * [Slides](slides/README.md)
