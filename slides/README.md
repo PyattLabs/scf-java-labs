@@ -9,3 +9,4 @@
 | 6 | Loops | [week6-loops.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week6-loops.pdf) |
 | 7 | Methods | [week7-methods.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week7-methods.pdf) |
 | 8 | Single-Dim Arrays | [week8-arrays.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week8-arrays.pdf) |
+| 9 | Multi-Dim Arrays | [week9-multidim-arrays.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week9-multidim-arrays.pdf) |
