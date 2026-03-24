@@ -9,6 +9,7 @@
   * [Week 7 - Methods](labs/week7-methods/README.md)
   * [Week 8 - Arrays](labs/week8-arrays/README.md)
   * [Week 9 - Multi-Dim Arrays](labs/week9-multidim-arrays/README.md)
+  * [Week 10 - Objects and Classes](labs/week10-objects-classes/README.md)
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
@@ -17,6 +18,7 @@
   * [Assignment 6 - Sort](assignments/assignment6-sort/assignment6-sort.md)
   * [Assignment 7 - Grades](assignments/assignment7-grades/assignment7-the-players.md)
   * [Assignment 8 - Sum Column](assignments/assignment8-sumcolumn/assignment8-the-players.md)
+  * [Assignment 9 - Rectangle](assignments/assignment9-rectangle/assignment9-the-players.md)
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
   * [Week 7 - Picker](practice/COP2250_Week7_Picker.java ':ignore')
