@@ -32,3 +32,7 @@
   * [WSL Windows Guide](docs/wsl-windows-guide.md)
   * [File Structure Visual](docs/file-structure-visual.html)
 * [Slides](slides/README.md)
+* Java Game
+  * [Project Overview](java-game/README.md)
+  * [Stage Examples](java-game/examples.md)
+  * [Architecture Guide](java-game/architecture.md)
