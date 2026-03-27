@@ -35,7 +35,7 @@ Register at: **http://68.183.107.172:3003/register**
 
 ## Project Timeline
 
-![Project Timeline](java-game/project-timeline.svg)
+![Project Timeline](project-timeline.svg)
 
 ---
 
