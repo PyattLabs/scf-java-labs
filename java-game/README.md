@@ -12,13 +12,11 @@ Over the next several weeks your team will design and develop an original intera
 
 **You choose the type of game.** A text-based RPG with rooms and characters. A card game like Blackjack. A quiz engine. A dungeon crawler. A strategy simulation. The subject is yours — the engineering requirements are not.
 
-This project is structured the same way software is built in the real world: you start with an idea, document your thinking, design your system, and build it incrementally. Each stage feeds the next. If you skip a stage or treat it as a checkbox, the next stage will show it.
-
-The game runs in the terminal. No GUI is required. But by the end, you should be able to answer the question: *"How would this work with a GUI?"* That question is part of your final evaluation.
+The game runs in the terminal. No GUI is required. But by the end, you should be able to answer: *"How would this work with a GUI?"*
 
 **Simple to start. Hard to fake. Depth is always rewarded.**
 
-> See [Stage Examples](java-game/examples.md) for concrete examples of each deliverable across different game types.
+> See [Stage Examples](java-game/examples.md) and [Architecture Guide](java-game/architecture.md) for reference.
 
 ---
 
@@ -27,13 +25,11 @@ The game runs in the terminal. No GUI is required. But by the end, you should be
 | Team | HedgeDoc Workspace |
 |---|---|
 | RPG | http://68.183.107.172:3003/XALzzW0rRUiEYsJAqIlxXQ |
-| Maria & Vel | http://68.183.107.172:3003/b3EmZSt0Q7mrQCX7i9lDMw |
-| Jayden & Draden | http://68.183.107.172:3003/2tTSOxfPSk2r81jqpswF0Q |
-| Kayde, Diego, Ryan & Edgar | http://68.183.107.172:3003/Rzsv3GxhQbCCVpiKOf2mHA |
+| Maria & Vel | http://68.183.107.172:3003/nf5k-PD_Tp-RP6JIWLKBcQ |
+| Jayden & Draden | http://68.183.107.172:3003/Hz7oe2pzTX6Hetd30S6pEQ |
+| Kayde, Diego, Ryan & Edgar | http://68.183.107.172:3003/2o9mokCzSieNKd-f4qBPAw |
 
-- Teams of **2–3 students**, confirmed with instructor
-- Edit history on HedgeDoc is visible to the instructor — contribution is tracked
-- If a team member is not contributing, that will be reflected in their individual grade
+Register at: **http://68.183.107.172:3003/register**
 
 ---
 
@@ -50,12 +46,11 @@ The game runs in the terminal. No GUI is required. But by the end, you should be
 **What it is:** A 1–3 page written document describing your game at a high level. No code. No class names. Just the concept.
 
 **What to include:**
-
 - Game title and one-sentence pitch
 - Game type and genre
-- Core mechanics — how does the player interact with the program?
+- Core mechanics
 - Win condition, lose condition, or end state
-- The main entities in your game
+- Main entities in your game
 - What actions can the player take?
 
 **Deliverable:** PDF or Markdown posted to your team HedgeDoc and submitted via Canvas.
@@ -67,9 +62,8 @@ The game runs in the terminal. No GUI is required. But by the end, you should be
 **What it is:** A written technical document that translates your GDD into a class design.
 
 **What to include:**
-
-- A class hierarchy diagram — hand-drawn, diagramming tool, or ASCII
-- A written description of each class: responsibility, fields, methods, relationships
+- Class hierarchy diagram — hand-drawn, diagramming tool, or ASCII
+- Written description of each class: responsibility, fields, methods, relationships
 - Which classes are abstract and why
 - Which interfaces you plan to implement and why
 
@@ -80,11 +74,10 @@ The game runs in the terminal. No GUI is required. But by the end, you should be
 ### Stage 3 — Team Charter and HedgeDoc Setup
 
 **What to include:**
-
 - Who is responsible for which classes
 - How your team will communicate outside of class
 - How you will handle disagreements
-- A signed acknowledgment from all members
+- Signed acknowledgment from all members
 
 **Deliverable:** Posted to your team HedgeDoc before Sprint 1.
 
@@ -96,9 +89,9 @@ The game runs in the terminal. No GUI is required. But by the end, you should be
 *Week 13 | Chapter 12: Exception Handling*
 
 - At least 3 distinct classes defined with fields and constructors
-- A `main` method launches the program and produces output
+- A `main` method launches and produces output
 - At least one class manages state
-- Basic player input is handled
+- Basic player input handled
 
 #### Sprint 2 — Inheritance and Object Relationships
 *Week 14 | Chapter 13: Interfaces*
@@ -109,7 +102,7 @@ The game runs in the terminal. No GUI is required. But by the end, you should be
 - Core game loop functional
 
 #### Sprint 3 — Feature Complete
-*Week 15 | Chapter 14/15*
+*Week 15 | Chapters 14–15*
 
 - All invalid input handled gracefully
 - At least one interface implemented
@@ -144,7 +137,7 @@ Live demo + individual technical questioning. Every team member must be able to 
 | Method override | At least 1 |
 | Composition | At least 1 |
 | Interface | At least 1 |
-| Exception handling | Required — no crashes on bad input |
+| Exception handling | Required |
 | Game loop | Required |
 | End condition | Required |
 | GUI reflection | Required from every team member |
