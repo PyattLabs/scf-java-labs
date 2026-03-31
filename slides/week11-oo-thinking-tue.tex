@@ -1,0 +1,239 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{crane}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{charcoal}{RGB}{44,44,44}
+\definecolor{tuered}{RGB}{180,30,45}
+
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=tuered,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal,fg=white}
+\setbeamercolor{palette quaternary}{bg=tuered,fg=white}
+\setbeamercolor{structure}{fg=tuered}
+\setbeamercolor{section in toc}{fg=charcoal}
+
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{tuered}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{teal},
+  backgroundcolor=\color{black!5},
+  frame=single,
+  breaklines=true
+}
+
+\title{OO Thinking}
+\subtitle{Week 12 — Tuesday | Chapter 10}
+\author{Professor Pyatt}
+\institute{COP 2250 — Java Programming | Pyatt Labs @ SCF}
+\date{Spring 2026}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Where We Are}
+  \begin{block}{So far}
+    \begin{itemize}
+      \item Week 10: Designed a \texttt{Rectangle} class — fields, constructors, methods
+      \item You understand \textbf{encapsulation}: private fields, public accessors
+    \end{itemize}
+  \end{block}
+  \begin{block}{This week}
+    \begin{itemize}
+      \item Chapter 10: \textbf{OO Thinking}
+      \item Immutable objects, instance vs.\ static, method overloading
+      \item You will build a wrapper class: \texttt{MyString} (lab) and \texttt{MyInteger} (assignment)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{Immutable Objects}
+  \begin{lstlisting}
+String s = "hello";
+s.toUpperCase();
+System.out.println(s);  // still "hello"
+  \end{lstlisting}
+  \begin{block}{Key Point}
+    \texttt{toUpperCase()} returns a \textbf{new} String.\\
+    It does \textbf{not} modify the original.
+  \end{block}
+  \begin{itemize}
+    \item Immutable = safe to share
+    \item The stored value never changes after construction
+    \item Java's \texttt{String} class is immutable by design
+  \end{itemize}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{String vs StringBuilder}
+  \begin{lstlisting}
+// String: creates a new object every concatenation
+String s = "hello";
+s = s + " world";
+
+// StringBuilder: modifies in place
+StringBuilder sb = new StringBuilder("hello");
+sb.append(" world");
+System.out.println(sb.toString());
+  \end{lstlisting}
+  \begin{alertblock}{Performance}
+    In a loop concatenating 1000 strings, \texttt{StringBuilder}\\
+    is dramatically faster. \texttt{String} creates 1000 objects.
+  \end{alertblock}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{Instance vs Static Methods}
+  \begin{lstlisting}
+MyInteger m = new MyInteger(7);
+
+// Instance method — needs an object
+m.isEven();
+
+// Static method — belongs to the class
+MyInteger.isEven(4);
+  \end{lstlisting}
+  \begin{block}{Rule of Thumb}
+    \begin{itemize}
+      \item Instance: method needs the \textbf{stored value}
+      \item Static: works on \textbf{any input}, no object required
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{Method Overloading}
+  \begin{lstlisting}
+// Three versions of isEven — same name, different params
+public boolean isEven()              // instance
+public static boolean isEven(int n)  // static, int
+public static boolean isEven(MyInteger m) // static, MyInteger
+  \end{lstlisting}
+  \begin{block}{Java picks based on the argument type}
+    Don't duplicate logic. Have the \texttt{MyInteger} version\\
+    call the \texttt{int} version:
+  \end{block}
+  \begin{lstlisting}
+public static boolean isEven(MyInteger m) {
+    return isEven(m.getValue());  // reuse!
+}
+  \end{lstlisting}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{Wrapper Class Design}
+  \begin{block}{What is a wrapper class?}
+    A class that stores a single primitive value and\\
+    exposes methods to inspect or transform it.
+  \end{block}
+  \begin{lstlisting}
+public class MyString {
+    private String value;
+
+    public MyString(String value) {
+        this.value = value;
+    }
+
+    public String toUpperCase() {
+        return value.toUpperCase(); // returns new — immutable
+    }
+}
+  \end{lstlisting}
+  \begin{itemize}
+    \item \texttt{value} is private
+    \item Methods return new values — they do not reassign \texttt{value}
+  \end{itemize}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{isPrime — The Logic}
+  \begin{lstlisting}
+public static boolean isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+  \end{lstlisting}
+  \begin{itemize}
+    \item 1 is not prime
+    \item Only check up to $\sqrt{n}$ — any larger factor has a smaller partner
+    \item If no divisor found: prime
+  \end{itemize}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}[fragile]{parseInt Without Integer.parseInt()}
+  \begin{lstlisting}
+// "1234" → 1234
+int result = 0;
+for (int i = 0; i < s.length(); i++) {
+    result = result * 10
+           + Character.getNumericValue(s.charAt(i));
+}
+  \end{lstlisting}
+  \begin{block}{The Algorithm}
+    Shift left one decimal place each iteration.\\
+    Multiply by 10, add the digit.
+  \end{block}
+  \begin{alertblock}{Rule}
+    You cannot use \texttt{Integer.parseInt()} inside\\
+    your own \texttt{parseInt()} — that is circular.
+  \end{alertblock}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Key Terms}
+  \begin{description}
+    \item[Wrapper class] Stores a single primitive; exposes methods
+    \item[Immutable] Object whose state cannot change after construction
+    \item[Instance method] Operates on \texttt{this} object's stored value
+    \item[Static method] Belongs to the class; no object needed
+    \item[Method overloading] Same name, different parameter types
+    \item[\texttt{this}] Reference to the current object's field
+  \end{description}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{Today's Lab — MyString}
+  \begin{block}{Build a wrapper class for \texttt{String}}
+    Implement in order:
+    \begin{enumerate}
+      \item \texttt{getValue()} — return stored value
+      \item \texttt{length()} — character count
+      \item \texttt{toUpperCase()} — return new uppercase string
+      \item \texttt{reverse()} — loop, no \texttt{StringBuilder.reverse()}
+      \item \texttt{isPalindrome()} — use your \texttt{reverse()}
+      \item \texttt{contains(String sub)} — return true/false
+    \end{enumerate}
+  \end{block}
+  \begin{alertblock}{Demo Requirement}
+    Screen-share, compile live, explain one method in your own words.
+  \end{alertblock}
+\end{frame}
+
+% -------------------------------------------------------
+\begin{frame}{What's Next}
+  \begin{block}{Assignment 10 — MyInteger (Liang 10.3)}
+    Same pattern. Wrapper for \texttt{int}.\\
+    Adds: overloaded static methods, \texttt{equals()}, \texttt{parseInt()}.
+  \end{block}
+  \begin{block}{Thursday}
+    Game project kickoff.\\
+    Stage 1: Game Design Document — no code, just concept.\\
+    Your team HedgeDoc is already set up.
+  \end{block}
+  \vspace{0.5em}
+  \centering\textit{Start simple. Get it running. Then make it better.}
+\end{frame}
+
+\end{document}

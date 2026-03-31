@@ -25,6 +25,7 @@
   * [Project Overview](java-game/README.md)
   * [Stage Examples](java-game/examples.md)
   * [Architecture Guide](java-game/architecture.md)
+  * [Game Design Concepts](java-game/game-design-concepts.md)
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
   * [Week 7 - Picker](practice/COP2250_Week7_Picker.java ':ignore')
