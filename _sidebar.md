@@ -10,6 +10,7 @@
   * [Week 8 - Arrays](labs/week8-arrays/README.md)
   * [Week 9 - Multi-Dim Arrays](labs/week9-multidim-arrays/README.md)
   * [Week 10 - Objects and Classes](labs/week10-objects-classes/README.md)
+  * [Week 11 - OO Thinking](labs/week11-oo-thinking/README.md)
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
@@ -19,6 +20,11 @@
   * [Assignment 7 - Grades](assignments/assignment7-grades/assignment7-the-players.md)
   * [Assignment 8 - Sum Column](assignments/assignment8-sumcolumn/assignment8-the-players.md)
   * [Assignment 9 - Rectangle](assignments/assignment9-rectangle/assignment9-the-players.md)
+  * [Assignment 10 - MyInteger](assignments/assignment10-myinteger/assignment10-the-players.md)
+* Java Game
+  * [Project Overview](java-game/README.md)
+  * [Stage Examples](java-game/examples.md)
+  * [Architecture Guide](java-game/architecture.md)
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
   * [Week 7 - Picker](practice/COP2250_Week7_Picker.java ':ignore')
@@ -32,7 +38,3 @@
   * [WSL Windows Guide](docs/wsl-windows-guide.md)
   * [File Structure Visual](docs/file-structure-visual.html)
 * [Slides](slides/README.md)
-* Java Game
-  * [Project Overview](java-game/README.md)
-  * [Stage Examples](java-game/examples.md)
-  * [Architecture Guide](java-game/architecture.md)
