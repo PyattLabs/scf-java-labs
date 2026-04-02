@@ -1,0 +1,190 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Game Project Kickoff]{Game Project Kickoff}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 12}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{What You're Building}
+\textbf{Terminal Game Project --- team of 2--3 students}
+\vspace{0.3cm}
+\begin{itemize}
+  \item Original interactive game written entirely in Java
+  \item Runs in the terminal --- no GUI required
+  \item You choose the game type
+  \item Delivered in stages over the next 4 weeks
+\end{itemize}
+\vspace{0.3cm}
+\textit{You choose the game. You design the architecture. You write every line.}
+\end{frame}
+\begin{frame}{Teams and HedgeDoc}
+\textbf{Your team workspace is already set up.}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Team} & \textbf{Workspace} \\
+\midrule
+RPG & Linked on Project Overview page \\
+Maria \& Vel & Linked on Project Overview page \\
+Jayden \& Draden & Linked on Project Overview page \\
+Kayde, Diego, Ryan \& Edgar & Linked on Project Overview page \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+Open now: \texttt{pyattlabs.github.io/scf-java-labs/\#/java-game/README}
+\end{frame}
+\begin{frame}{Project Timeline}
+\begin{tabular}{ll}
+\toprule
+\textbf{Week} & \textbf{Milestone} \\
+\midrule
+Week 12 & Stages 1, 2, 3 --- Design, Architecture, Charter \\
+Week 13 & Sprint 1 --- Core classes running \\
+Week 14 & Sprint 2 --- Inheritance and object relationships \\
+Week 15 & Sprint 3 --- Feature complete + Playtest \\
+Week 16 & Final Demo + Individual Defense \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Design documents are 30\% of your project grade. Do not skip them.}
+\end{frame}
+\begin{frame}{Stage 1 --- Game Design Document}
+\textbf{No code. Just the concept.}
+\vspace{0.2cm}
+\begin{enumerate}
+  \item Game title and one-sentence pitch
+  \item Game type and genre
+  \item Core mechanics --- what does the player do?
+  \item Win condition, lose condition, or end state
+  \item Main entities in your game
+  \item What actions can the player take?
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Deliverable:} Posted to your HedgeDoc and submitted via Canvas.
+\end{frame}
+\begin{frame}{Stage 2 --- Architecture Document}
+\textbf{Translate the GDD into class design.}
+\vspace{0.2cm}
+\begin{itemize}
+  \item Class hierarchy diagram (hand-drawn, ASCII, or tool)
+  \item Description of each class: responsibility, fields, methods
+  \item Which classes are abstract and why
+  \item Which interfaces you plan to implement and why
+\end{itemize}
+\vspace{0.3cm}
+\textit{What are the things in your game? Each thing is probably a class.}
+\end{frame}
+\begin{frame}{Stage 3 --- Team Charter}
+\textbf{Team agreements in writing. Required before Sprint 1.}
+\vspace{0.2cm}
+\begin{itemize}
+  \item Who owns which classes
+  \item How you communicate outside of class
+  \item How you handle disagreements
+  \item Signed acknowledgment from all members
+\end{itemize}
+\vspace{0.3cm}
+\textit{No charter = no sprint credit.}
+\end{frame}
+\begin{frame}{OOP Requirements}
+\begin{tabular}{ll}
+\toprule
+\textbf{Requirement} & \textbf{Minimum} \\
+\midrule
+Distinct classes & 4 or more \\
+Abstract class & 1, with 2+ concrete subclasses \\
+Method override & At least 1 \\
+Composition & At least 1 \\
+Interface & At least 1 \\
+Exception handling & Required \\
+Game loop & Required \\
+End condition & Required \\
+GUI reflection & Required from every member \\
+\bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}[fragile]{Sample Class Hierarchy}
+\begin{lstlisting}
+GameEngine
+|-- World
+|   |-- Room
+|-- Character (abstract)
+|   |-- Player
+|   |-- NPC
+|-- Item (abstract)
+    |-- Weapon
+    |-- Key
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item \texttt{Character} is abstract --- Player and NPC share behavior
+  \item \texttt{Item} is abstract --- all items have a name and effect
+  \item \texttt{GameEngine} composes \texttt{World} and \texttt{Player}
+\end{itemize}
+\end{frame}
+\begin{frame}{Game Ideas If You're Stuck}
+\begin{tabular}{ll}
+\toprule
+\textbf{Game} & \textbf{Core Classes} \\
+\midrule
+Blackjack & Deck, Card, Hand, Player, Dealer \\
+Quiz Engine & QuizBank, Question, Player, ScoreTracker \\
+Dungeon Crawler & Room, Enemy, Weapon, Player, GameEngine \\
+Inventory Sim & Item, Warehouse, Order, Customer \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Simple to start. Depth is always rewarded. Get it running first.}
+\end{frame}
+\begin{frame}{Today's Work}
+\textbf{By end of class:}
+\vspace{0.2cm}
+\begin{enumerate}
+  \item Open your team HedgeDoc
+  \item Complete Stage 1: Game Design Document
+  \item Sketch Stage 2: class hierarchy draft
+  \item Begin Stage 3: Team Charter
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Demo Requirement:} Every team member must be able to explain\\
+any part of the design document when called on.\\
+\vspace{0.3cm}
+\textit{You cannot fake understanding in front of a live terminal.}
+\end{frame}
+\end{document}
