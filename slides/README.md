@@ -11,3 +11,7 @@
 | 8 | Single-Dim Arrays | [week8-arrays.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week8-arrays.pdf) |
 | 9 | Multi-Dim Arrays | [week9-multidim-arrays.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week9-multidim-arrays.pdf) |
 | 10 | Objects and Classes | [week10-objects-classes.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week10-objects-classes.pdf) |
+| 11 | OO Thinking (Tuesday) | [week11-oo-thinking-tue.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week11-oo-thinking-tue.pdf) |
+| 11 | OO Thinking (Thursday) | [week11-oo-thinking-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week11-oo-thinking-thu.pdf) |
+| 12 | Inheritance (Tuesday) | [week12-inheritance-tue.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week12-inheritance-tue.pdf) |
+| 12 | Inheritance (Thursday) | [week12-inheritance-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week12-inheritance-thu.pdf) |
