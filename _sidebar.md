@@ -13,6 +13,7 @@
   * [Week 11 - OO Thinking](labs/week11-oo-thinking/README.md)
   * [Week 12 - Inheritance](labs/week12-inheritance/README.md)
   * [Week 13 - Exception Handling](labs/week13-exception-handling/README.md)
+  * [Week 14 - Abstract and Interfaces](labs/week14-abstract-interfaces/README.md)
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
@@ -25,17 +26,23 @@
   * [Assignment 10 - MyInteger](assignments/assignment10-myinteger/assignment10-the-players.md)
   * [Assignment 11 - Triangle](assignments/assignment11-triangle/assignment11-the-players.md)
   * [Assignment 12 - Array Bounds](assignments/assignment12-arraybounds/assignment12-the-players.md)
+  * [Assignment 13 - Abstract](assignments/assignment13-abstract/assignment13-the-players.md)
 * Java Game
   * [Project Overview](java-game/README.md)
   * [Stage Examples](java-game/examples.md)
   * [Architecture Guide](java-game/architecture.md)
   * [Game Design Concepts](java-game/game-design-concepts.md)
+  * [Sprint 3 Requirements](java-game/sprint3/README.md)
+  * [Final Demo and Defense](java-game/final-demo/README.md)
 * Practice
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
   * [Week 7 - Picker](practice/COP2250_Week7_Picker.java ':ignore')
   * [Week 9 - Picker](practice/COP2250_Week9_Picker.java ':ignore')
   * [Week 12 - Picker](practice/COP2250_Week12_Picker.java ':ignore')
   * [Week 13 - Picker](practice/COP2250_Week13_Picker.java ':ignore')
+  * [Week 14 - Picker](practice/COP2250_Week14_Picker.java ':ignore')
+  * [Week 15 - Picker](practice/COP2250_Week15_Picker.java ':ignore')
+  * [Week 16 - Picker](practice/COP2250_Week16_Picker.java ':ignore')
 * Docs
   * [Git Pull Instructions](docs/git-pull-instructions.md)
   * [Terminal Scavenger Hunt](docs/terminal-scavenger-hunt.md)
