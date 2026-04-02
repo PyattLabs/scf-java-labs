@@ -15,3 +15,9 @@
 | 11 | OO Thinking (Thursday) | [week11-oo-thinking-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week11-oo-thinking-thu.pdf) |
 | 12 | Inheritance (Tuesday) | [week12-inheritance-tue.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week12-inheritance-tue.pdf) |
 | 12 | Inheritance (Thursday) | [week12-inheritance-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week12-inheritance-thu.pdf) |
+| 13 | Exception Handling (Tuesday) | [week13-exception-handling-tue.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week13-exception-handling-tue.pdf) |
+| 13 | Exception Handling (Thursday) | [week13-exception-handling-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week13-exception-handling-thu.pdf) |
+| 14 | Abstract & Interfaces (Tuesday) | [week14-abstract-interfaces-tue.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week14-abstract-interfaces-tue.pdf) |
+| 14 | Abstract & Interfaces (Thursday) | [week14-abstract-interfaces-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week14-abstract-interfaces-thu.pdf) |
+| 15 | Sprint 3 (Tuesday) | [week15-sprint3-tue.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week15-sprint3-tue.pdf) |
+| 15 | Playtest (Thursday) | [week15-sprint3-thu.pdf](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/slides/week15-sprint3-thu.pdf) |
