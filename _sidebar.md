@@ -11,6 +11,7 @@
   * [Week 9 - Multi-Dim Arrays](labs/week9-multidim-arrays/README.md)
   * [Week 10 - Objects and Classes](labs/week10-objects-classes/README.md)
   * [Week 11 - OO Thinking](labs/week11-oo-thinking/README.md)
+  * [Week 12 - Inheritance](labs/week12-inheritance/README.md)
 * Assignments
   * [Assignment 2 - Gratuity](assignments/assignment2-gratuity/assignment2-the-players.md)
   * [Assignment 3 - RPS](assignments/assignment3-rps/assignment3-the-players.md)
@@ -21,6 +22,7 @@
   * [Assignment 8 - Sum Column](assignments/assignment8-sumcolumn/assignment8-the-players.md)
   * [Assignment 9 - Rectangle](assignments/assignment9-rectangle/assignment9-the-players.md)
   * [Assignment 10 - MyInteger](assignments/assignment10-myinteger/assignment10-the-players.md)
+  * [Assignment 11 - Triangle](assignments/assignment11-triangle/assignment11-the-players.md)
 * Java Game
   * [Project Overview](java-game/README.md)
   * [Stage Examples](java-game/examples.md)
@@ -30,6 +32,7 @@
   * [Practice Quiz - Week 5](practice/PracticeQuizWeek5.java ':ignore')
   * [Week 7 - Picker](practice/COP2250_Week7_Picker.java ':ignore')
   * [Week 9 - Picker](practice/COP2250_Week9_Picker.java ':ignore')
+  * [Week 12 - Picker](practice/COP2250_Week12_Picker.java ':ignore')
 * Docs
   * [Git Pull Instructions](docs/git-pull-instructions.md)
   * [Terminal Scavenger Hunt](docs/terminal-scavenger-hunt.md)
