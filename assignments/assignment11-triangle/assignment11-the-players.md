@@ -80,3 +80,11 @@ You must screen-share and:
 
 Submit `Triangle.java` via Canvas by the due date.
 `GeometricObject.java` does not need to be submitted.
+
+---
+
+## Starter Code
+
+**Download:** [Triangle.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment11-triangle/Triangle.java)
+
+**Download:** [GeometricObject.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment11-triangle/GeometricObject.java)

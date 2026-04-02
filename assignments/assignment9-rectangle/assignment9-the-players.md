@@ -69,3 +69,9 @@ Perimeter: 78.8
 
 You must screen-share, compile, and explain your code to receive credit.
 Be prepared to answer questions about constructors, data fields, and method return types.
+
+---
+
+## Starter Code
+
+**Download:** [YourName_Chapter9_Assignment1.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment9-rectangle/YourName_Chapter9_Assignment1.java)

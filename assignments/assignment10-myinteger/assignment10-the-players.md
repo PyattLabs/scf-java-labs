@@ -58,3 +58,9 @@ You must screen-share and:
 ## Submission
 
 Submit `MyInteger.java` via Canvas by the due date.
+
+---
+
+## Starter Code
+
+**Download:** [MyInteger.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment10-myinteger/MyInteger.java)

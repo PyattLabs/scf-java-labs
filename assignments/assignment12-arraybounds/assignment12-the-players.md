@@ -68,3 +68,9 @@ You must screen-share and:
 ## Submission
 
 Submit `ArrayBounds.java` via Canvas by the due date.
+
+---
+
+## Starter Code
+
+**Download:** [ArrayBounds.java](https://raw.githubusercontent.com/PyattLabs/scf-java-labs/main/assignments/assignment12-arraybounds/ArrayBounds.java)
