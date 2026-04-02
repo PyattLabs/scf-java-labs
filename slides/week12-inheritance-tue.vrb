@@ -1,0 +1,18 @@
+\frametitle{Heron's Formula}
+\textbf{Area of a triangle from three sides --- no height needed.}
+\begin{lstlisting}
+public double getArea() {
+    double s = (side1 + side2 + side3) / 2;
+    return Math.sqrt(s * (s - side1)
+                       * (s - side2)
+                       * (s - side3));
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Example: sides 3, 4, 5}
+\begin{tabular}{ll}
+s & = (3 + 4 + 5) / 2 = 6 \\
+area & = $\sqrt{6 \times 3 \times 2 \times 1}$ = $\sqrt{36}$ = 6.0 \\
+\end{tabular}
+\vspace{0.3cm}
+\textit{Verify your formula with a 3-4-5 triangle. Area must be exactly 6.0.}

@@ -1,0 +1,24 @@
+\frametitle{Minimum Sprint 1 Structure}
+\begin{lstlisting}
+// GameEngine.java
+public class GameEngine {
+    private Player player;
+    private boolean running;
+
+    public void start() {
+        running = true;
+        // game loop goes here
+    }
+}
+\end{lstlisting}
+\vspace{0.2cm}
+\begin{lstlisting}
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        GameEngine engine = new GameEngine();
+        engine.start();
+    }
+}
+\end{lstlisting}
+\textit{Three files. Compiles. Runs. Prints something. That is Sprint 1.}

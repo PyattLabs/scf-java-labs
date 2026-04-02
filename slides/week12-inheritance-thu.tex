@@ -1,0 +1,158 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Sprint 1 Prep]{Game Project --- Sprint 1 Prep}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 13}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Where Your Project Stands}
+\begin{tabular}{ll}
+\toprule
+\textbf{Stage} & \textbf{Status} \\
+\midrule
+Stage 1 --- Game Design Document & Due today \\
+Stage 2 --- Architecture Document & Due today \\
+Stage 3 --- Team Charter & Due today \\
+Sprint 1 --- Core classes running & Due next Thursday \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Stages 1--3 are 30\% of your project grade. If they are not done, do them now.}
+\end{frame}
+\begin{frame}{Stage Check-In}
+\textbf{Each team answers these right now:}
+\vspace{0.2cm}
+\begin{enumerate}
+  \item What is your game title and one-sentence pitch?
+  \item List your class names --- at least 4
+  \item Which class is abstract and why?
+  \item Which class owns the game loop?
+  \item What is your end condition?
+\end{enumerate}
+\vspace{0.3cm}
+\textit{If you cannot answer these, your architecture document is not finished.}
+\end{frame}
+\begin{frame}{Sprint 1 Requirements}
+\textbf{By next Thursday --- core classes running:}
+\vspace{0.2cm}
+\begin{itemize}
+  \item At least 3 distinct classes defined with fields and constructors
+  \item A \texttt{main} method launches and produces output
+  \item At least one class manages state
+  \item Basic player input handled with \texttt{Scanner}
+\end{itemize}
+\vspace{0.3cm}
+\textbf{It does not have to be pretty. It has to run.}\\
+\vspace{0.2cm}
+\textit{Compile and run in front of me. That is the only check that matters.}
+\end{frame}
+\begin{frame}[fragile]{Minimum Sprint 1 Structure}
+\begin{lstlisting}
+// GameEngine.java
+public class GameEngine {
+    private Player player;
+    private boolean running;
+
+    public void start() {
+        running = true;
+        // game loop goes here
+    }
+}
+\end{lstlisting}
+\vspace{0.2cm}
+\begin{lstlisting}
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        GameEngine engine = new GameEngine();
+        engine.start();
+    }
+}
+\end{lstlisting}
+\textit{Three files. Compiles. Runs. Prints something. That is Sprint 1.}
+\end{frame}
+\begin{frame}{Replayability --- Architecture Decision}
+\textbf{If your game has replayability, answer this now:}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Option} & \textbf{Trade-off} \\
+\midrule
+\texttt{World} builds itself randomly & Simple, harder to test \\
+\texttt{MapGenerator} hands \texttt{World} a finished map & Testable, more classes \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textbf{This must be in your architecture document.}\\
+A design disagreement that lives only in conversation is not a design decision.
+\vspace{0.2cm}
+\textit{Put it on paper. Point to it. Defend it.}
+\end{frame}
+\begin{frame}{What Inheritance Looks Like in Your Game}
+\textbf{Apply what you learned Tuesday:}
+\vspace{0.2cm}
+\begin{itemize}
+  \item Abstract \texttt{Character} --- \texttt{Player} and \texttt{NPC} extend it
+  \item Abstract \texttt{Item} --- \texttt{Weapon}, \texttt{Key}, \texttt{Potion} extend it
+  \item Abstract \texttt{Question} --- \texttt{MultipleChoice}, \texttt{TrueFalse} extend it
+\end{itemize}
+\vspace{0.3cm}
+\textbf{Every abstract class needs at least one abstract method.}
+\begin{itemize}
+  \item \texttt{Character}: \texttt{abstract void attack()}
+  \item \texttt{Item}: \texttt{abstract void use(Player p)}
+  \item \texttt{Question}: \texttt{abstract boolean checkAnswer(String input)}
+\end{itemize}
+\end{frame}
+\begin{frame}{Today's Work}
+\textbf{By end of class:}
+\vspace{0.2cm}
+\begin{enumerate}
+  \item Finalize and post Stages 1--3 to HedgeDoc
+  \item Create your project folder and first \texttt{.java} file
+  \item Confirm your abstract class and at least 2 subclasses
+  \item Assign classes to team members
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Demo Requirement:} Every team member explains their assigned class\\
+and what it is responsible for.\\
+\vspace{0.3cm}
+\textit{Sprint 1 is next Thursday. The clock is running.}
+\end{frame}
+\end{document}

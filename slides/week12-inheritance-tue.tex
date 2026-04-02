@@ -1,0 +1,199 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Inheritance]{Inheritance and Polymorphism}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 13}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Extend a superclass using \texttt{extends}
+  \item Call the parent constructor using \texttt{super()}
+  \item Override methods with \texttt{@Override}
+  \item Understand method lookup order: subclass first, then superclass
+  \item Apply Heron's formula to compute triangle area
+  \item Build \texttt{Triangle extends GeometricObject}
+\end{itemize}
+\end{frame}
+\begin{frame}{Is-A vs Has-A}
+\textbf{Before you write \texttt{extends}, ask the question:}
+\vspace{0.3cm}
+\begin{tabular}{lll}
+\toprule
+\textbf{Relationship} & \textbf{Example} & \textbf{Use} \\
+\midrule
+Is-A & Triangle is a GeometricObject & \texttt{extends} \\
+Has-A & GameEngine has a World & field (composition) \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Get this backwards and your hierarchy fights you for the rest of the project.}
+\end{frame}
+\begin{frame}[fragile]{Extending a Class}
+\begin{lstlisting}
+public class Triangle extends GeometricObject {
+    private double side1;
+    private double side2;
+    private double side3;
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\texttt{Triangle} automatically inherits:
+\begin{itemize}
+  \item \texttt{color} and \texttt{filled} fields (private --- use getters)
+  \item \texttt{getColor()}, \texttt{setColor()}, \texttt{isFilled()}, \texttt{setFilled()}
+  \item \texttt{toString()} --- can be overridden
+\end{itemize}
+\vspace{0.2cm}
+\textit{You get everything. You add what's specific to Triangle.}
+\end{frame}
+\begin{frame}[fragile]{super() in Constructors}
+\textbf{The parent must be constructed before the child.}
+\begin{lstlisting}
+public Triangle(double side1, double side2, double side3) {
+    super();          // calls GeometricObject constructor
+    this.side1 = side1;
+    this.side2 = side2;
+    this.side3 = side3;
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item \texttt{super()} must be the \textbf{first line} of the constructor
+  \item If you omit it, Java inserts a no-arg \texttt{super()} automatically
+  \item If the parent has no no-arg constructor --- it crashes
+\end{itemize}
+\vspace{0.2cm}
+\textit{Always write it explicitly. Never rely on the implicit call.}
+\end{frame}
+\begin{frame}[fragile]{@Override}
+\textbf{GeometricObject has toString(). Triangle wants its own.}
+\begin{lstlisting}
+@Override
+public String toString() {
+    return super.toString()
+         + "\nSide 1: " + side1
+         + "\nSide 2: " + side2
+         + "\nSide 3: " + side3;
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item \texttt{@Override} tells the compiler you intend to override
+  \item If you typo the method name, the compiler catches it
+  \item \texttt{super.toString()} calls the parent version first
+\end{itemize}
+\vspace{0.2cm}
+\textit{Always call super.toString(). Never throw away the parent's work.}
+\end{frame}
+\begin{frame}[fragile]{Method Lookup Order}
+\textbf{Java looks in the actual object's class first.}
+\begin{lstlisting}
+GeometricObject g = new Triangle(3, 4, 5);
+System.out.println(g.toString());
+// calls Triangle's toString() -- not GeometricObject's
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+Reference type & \texttt{GeometricObject} \\
+Actual object & \texttt{Triangle} \\
+Method called & \texttt{Triangle.toString()} \\
+\end{tabular}
+\vspace{0.3cm}
+\textit{The reference type does not determine which method runs. The object does.}\\
+\textit{This is polymorphism.}
+\end{frame}
+\begin{frame}[fragile]{Heron's Formula}
+\textbf{Area of a triangle from three sides --- no height needed.}
+\begin{lstlisting}
+public double getArea() {
+    double s = (side1 + side2 + side3) / 2;
+    return Math.sqrt(s * (s - side1)
+                       * (s - side2)
+                       * (s - side3));
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\textbf{Example: sides 3, 4, 5}
+\begin{tabular}{ll}
+s & = (3 + 4 + 5) / 2 = 6 \\
+area & = $\sqrt{6 \times 3 \times 2 \times 1}$ = $\sqrt{36}$ = 6.0 \\
+\end{tabular}
+\vspace{0.3cm}
+\textit{Verify your formula with a 3-4-5 triangle. Area must be exactly 6.0.}
+\end{frame}
+\begin{frame}{Key Terms}
+\begin{description}
+  \item[Inheritance] A subclass acquires fields and methods of its superclass
+  \item[\texttt{extends}] Keyword that creates an inheritance relationship
+  \item[\texttt{super()}] Calls the parent class constructor
+  \item[\texttt{@Override}] Declares intent to replace a parent method
+  \item[Polymorphism] A parent reference can point to a child object; child method runs
+  \item[Method lookup] Java searches the actual object's class first
+\end{description}
+\end{frame}
+\begin{frame}{Common Mistakes}
+\begin{tabular}{ll}
+\toprule
+\textbf{Mistake} & \textbf{Fix} \\
+\midrule
+Accessing private parent field directly & Use the getter \\
+Forgetting \texttt{super()} & Parent must be built first \\
+\texttt{@Override} removed due to error & Fix the signature, keep \texttt{@Override} \\
+\texttt{toString()} not calling \texttt{super.toString()} & Always call super \\
+Wrong Heron's formula parentheses & Check each subtraction is wrapped \\
+\bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}{Lab --- Shape Hierarchy}
+\textbf{Build a small inheritance hierarchy. Implement in order:}
+\begin{enumerate}
+  \item Read \texttt{Shape.java} --- do not modify it
+  \item Create \texttt{Circle.java} extending \texttt{Shape}
+  \item Create \texttt{Rectangle.java} extending \texttt{Shape}
+  \item Override \texttt{toString()} in both --- call \texttt{super.toString()}
+  \item Create \texttt{ShapeTest.java} --- instantiate and print both
+  \item Compile all files, run, verify output
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Demo Requirement:} Screen-share, compile live, explain what \texttt{super()} does.\\
+\vspace{0.3cm}
+\textbf{Next:} Assignment 11 --- Triangle extends GeometricObject (Liang 11.1)
+\end{frame}
+\end{document}
