@@ -1,0 +1,103 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Playtest Day]{Game Project --- Playtest Day}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 15}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Playtest Protocol}
+\textbf{Teams swap games.}
+\vspace{0.3cm}
+\begin{enumerate}
+  \item Share code via HedgeDoc or terminal
+  \item Other team compiles cold: \texttt{javac *.java}
+  \item Other team runs: \texttt{java Main}
+  \item Play for 10 minutes without asking for help
+  \item Write feedback --- 3 to 5 sentences minimum
+\end{enumerate}
+\vspace{0.3cm}
+\textit{If they cannot compile without your help, that is feedback.}
+\end{frame}
+\begin{frame}{Feedback Requirements}
+\textbf{Written feedback submitted before end of class.}
+\vspace{0.3cm}
+\begin{itemize}
+  \item What worked well
+  \item What was confusing or unclear
+  \item One specific suggestion for improvement
+  \item Whether the game compiled and ran without help
+\end{itemize}
+\vspace{0.3cm}
+\textit{Bad: "It was good."}\\
+\textit{Good: "Input prompt was unclear --- I didn't know valid commands."}
+\end{frame}
+\begin{frame}{Team Assignments}
+\begin{tabular}{ll}
+\toprule
+\textbf{Your Team} & \textbf{Plays} \\
+\midrule
+RPG & Maria \& Vel \\
+Maria \& Vel & RPG \\
+Jayden \& Draden & Kayde, Diego, Ryan \& Edgar \\
+Kayde, Diego, Ryan \& Edgar & Jayden \& Draden \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Post feedback to your HedgeDoc before leaving.}
+\end{frame}
+\begin{frame}{Final Demo --- Next Week}
+\textbf{Week 16 --- Individual Defense}
+\vspace{0.3cm}
+\begin{itemize}
+  \item Team demo: compile and run live
+  \item Individual questioning: you answer for your own code
+  \item GUI Reflection submitted to Canvas before class ends
+\end{itemize}
+\vspace{0.3cm}
+\textbf{You will be asked:}
+\begin{itemize}
+  \item Explain a class you wrote
+  \item Walk me through your game loop
+  \item Why did you use an abstract class?
+  \item What would change with a GUI?
+\end{itemize}
+\vspace{0.3cm}
+\textit{You cannot fake understanding in front of a live terminal. You built this. Own it.}
+\end{frame}
+\end{document}

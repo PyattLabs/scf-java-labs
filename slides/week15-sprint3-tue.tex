@@ -1,0 +1,119 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Sprint 3]{Game Project --- Sprint 3}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 15}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Sprint 3 --- Feature Complete}
+\textbf{Last build sprint. By Thursday:}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Requirement} & \textbf{Description} \\
+\midrule
+Invalid input handled & No crashes \\
+Interface implemented & At least one \\
+End condition functional & Game can end \\
+Code commented & Every class and method \\
+All OOP requirements met & See project overview \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Feature complete: a stranger compiles it, runs it, plays it without your help.}
+\end{frame}
+\begin{frame}{Sprint 3 Checklist}
+\textbf{Run through before Thursday:}
+\vspace{0.2cm}
+\begin{itemize}
+  \item \texttt{javac *.java} compiles with zero errors
+  \item \texttt{java Main} launches the game
+  \item Player completes at least one full game loop
+  \item Invalid input does not crash the game
+  \item End condition triggers correctly
+  \item Every team member explains their assigned classes
+\end{itemize}
+\vspace{0.3cm}
+\textit{If any item is unchecked, that is your work for today.}
+\end{frame}
+\begin{frame}[fragile]{Input Handling --- Required}
+\begin{lstlisting}
+while (running) {
+    System.out.print("Enter command: ");
+    try {
+        String input = scanner.nextLine().trim();
+        processCommand(input);
+    } catch (Exception e) {
+        System.out.println("Invalid input. Try again.");
+    }
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\textit{If your game crashes on bad input, it is not feature complete.}
+\end{frame}
+\begin{frame}{Code Quality}
+\textbf{Every file must have:}
+\vspace{0.2cm}
+\begin{itemize}
+  \item Header comment: class name, author, date, purpose
+  \item Method comments: what it does, what it returns
+  \item No dead code or commented-out blocks
+  \item Meaningful variable names
+\end{itemize}
+\vspace{0.3cm}
+\textit{During the defense I will read your code aloud.}\\
+\textit{Write code you are willing to hear read back to you.}
+\end{frame}
+\begin{frame}{Today's Work}
+\textbf{Use every minute:}
+\vspace{0.2cm}
+\begin{enumerate}
+  \item Run the checklist --- fix what is failing
+  \item Add comments to every class and method
+  \item Test invalid input on every input point
+  \item Confirm end condition triggers correctly
+  \item Every team member runs the game solo --- no coaching
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Thursday is Playtest.}\\
+Another team compiles and runs your game cold.\\
+\vspace{0.3cm}
+\textit{It has to work without you explaining it.}
+\end{frame}
+\end{document}

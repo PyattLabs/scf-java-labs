@@ -1,0 +1,182 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Abstract Classes \& Interfaces]{Abstract Classes and Interfaces}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 14}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Declare and use abstract classes
+  \item Write abstract methods subclasses must implement
+  \item Define and implement interfaces
+  \item Understand when to use abstract class vs interface
+  \item Apply both to a shape hierarchy
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]{Abstract Class}
+\textbf{Cannot be instantiated. Subclasses must implement abstract methods.}
+\begin{lstlisting}
+abstract class GeometricObject {
+    private String color;
+
+    public GeometricObject(String color) {
+        this.color = color;
+    }
+
+    public abstract double getArea();
+    public abstract double getPerimeter();
+
+    public String toString() {
+        return "Color: " + color
+             + "\nArea: " + getArea();
+    }
+}
+\end{lstlisting}
+\textit{toString() calls getArea() --- the subclass version runs. Polymorphism.}
+\end{frame}
+\begin{frame}[fragile]{Interface}
+\textbf{A pure contract. Implementing class must provide all methods.}
+\begin{lstlisting}
+interface Colorable {
+    void howToColor();
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Abstract Class} & \textbf{Interface} \\
+\midrule
+Can have fields & No instance fields \\
+Can have constructors & No constructors \\
+Can have concrete methods & Methods abstract by default \\
+Extend one only & Implement many \\
+\bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}[fragile]{Implementing Both}
+\begin{lstlisting}
+class Circle extends GeometricObject implements Colorable {
+    private double radius;
+
+    public Circle(double radius, String color) {
+        super(color);
+        this.radius = radius;
+    }
+
+    public double getArea() { return Math.PI * radius * radius; }
+    public double getPerimeter() { return 2 * Math.PI * radius; }
+
+    public void howToColor() {
+        System.out.println("Color the circle with radius "
+            + radius);
+    }
+}
+\end{lstlisting}
+\textit{Must implement all abstract methods from GeometricObject and Colorable.}
+\end{frame}
+\begin{frame}[fragile]{Polymorphism and Casting}
+\begin{lstlisting}
+GeometricObject g = new Circle(5.0, "red");
+System.out.println(g.getArea());   // Circle's getArea()
+
+// Cast required to call interface method
+((Colorable) g).howToColor();
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item Reference type: \texttt{GeometricObject}
+  \item Actual object: \texttt{Circle}
+  \item Cast needed only to access \texttt{Colorable} methods
+  \item Wrong cast at runtime: \texttt{ClassCastException}
+\end{itemize}
+\end{frame}
+\begin{frame}{Abstract Class vs Interface}
+\textbf{Use abstract class when:}
+\begin{itemize}
+  \item Subclasses share fields or concrete methods
+  \item Strong is-a relationship
+\end{itemize}
+\vspace{0.3cm}
+\textbf{Use interface when:}
+\begin{itemize}
+  \item Unrelated classes share behavior
+  \item Multiple contracts needed
+\end{itemize}
+\vspace{0.3cm}
+\textit{Colorable applies to Circle, Rectangle, even Car. They share behavior, not ancestry.}
+\end{frame}
+\begin{frame}{Key Terms}
+\begin{description}
+  \item[Abstract class] Cannot be instantiated; may contain abstract methods
+  \item[Abstract method] No body; subclass must implement
+  \item[Interface] Pure contract; defines method signatures only
+  \item[\texttt{implements}] Keyword a class uses to fulfill an interface
+  \item[Cast] Treating a reference as a specific type
+  \item[\texttt{instanceof}] Tests whether an object is of a specific type
+\end{description}
+\end{frame}
+\begin{frame}{Common Mistakes}
+\begin{tabular}{ll}
+\toprule
+\textbf{Mistake} & \textbf{Fix} \\
+\midrule
+Instantiating abstract class & Use a concrete subclass \\
+Missing \texttt{super(color)} & Parent constructor must be called \\
+Interface method not implemented & Compiler tells you which one \\
+Cast exception at runtime & Check with \texttt{instanceof} first \\
+Abstract method has a body & Remove body, add semicolon \\
+\bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}{Lab --- Abstract Shape Hierarchy}
+\textbf{Build in order:}
+\begin{enumerate}
+  \item Define \texttt{Resizable} interface: \texttt{void resize(double factor)}
+  \item Abstract \texttt{Shape}: color, abstract \texttt{getArea()}, abstract \texttt{getPerimeter()}
+  \item \texttt{Circle extends Shape implements Resizable}
+  \item \texttt{Rectangle extends Shape implements Resizable}
+  \item Test: create both, print area, resize, print again
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Demo Requirement:} Compile live, explain abstract vs interface.\\
+\vspace{0.3cm}
+\textbf{Next:} Assignment 13 --- Abstract Classes and Interfaces
+\end{frame}
+\end{document}

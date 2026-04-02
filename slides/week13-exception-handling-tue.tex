@@ -1,0 +1,166 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Exception Handling]{Exception Handling}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 13}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Today's Objectives}
+\begin{itemize}
+  \item Understand Java's exception hierarchy
+  \item Use \texttt{try}, \texttt{catch}, and \texttt{finally} blocks
+  \item Throw exceptions manually with \texttt{throw}
+  \item Distinguish checked from unchecked exceptions
+  \item Write multiple catch blocks correctly
+\end{itemize}
+\end{frame}
+\begin{frame}{Exception Hierarchy}
+\textbf{Every exception is an object.}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Type} & \textbf{Examples} \\
+\midrule
+\texttt{Error} & JVM failures --- do not catch \\
+\texttt{Exception} (checked) & \texttt{IOException} --- must handle \\
+\texttt{RuntimeException} (unchecked) & \texttt{ArithmeticException} \\
+& \texttt{NullPointerException} \\
+& \texttt{ArrayIndexOutOfBoundsException} \\
+& \texttt{NumberFormatException} \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Checked: compiler enforces handling. Unchecked: optional but recommended.}
+\end{frame}
+\begin{frame}[fragile]{try-catch-finally}
+\begin{lstlisting}
+try {
+    int[] arr = {1, 2, 3};
+    System.out.println(arr[5]); // throws
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Caught: " + e.getMessage());
+} finally {
+    System.out.println("Always runs.");
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item \texttt{try} --- code that might fail
+  \item \texttt{catch} --- runs if exception is thrown
+  \item \texttt{finally} --- runs no matter what
+\end{itemize}
+\vspace{0.2cm}
+\textit{finally runs whether or not an exception occurred. Whether or not it was caught.}
+\end{frame}
+\begin{frame}[fragile]{throw}
+\textbf{You can throw exceptions yourself to enforce preconditions.}
+\begin{lstlisting}
+public static void setAge(int age) {
+    if (age < 0) {
+        throw new IllegalArgumentException(
+            "Age cannot be negative: " + age);
+    }
+    this.age = age;
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\texttt{throw} & Statement that throws an exception \\
+\texttt{throws} & Declares a method may throw a checked exception \\
+\end{tabular}
+\vspace{0.3cm}
+\textit{throw immediately stops execution of the current method.}
+\end{frame}
+\begin{frame}[fragile]{Multiple Catch Blocks}
+\begin{lstlisting}
+try {
+    // code that might throw either
+} catch (ArithmeticException e) {
+    System.out.println("Math error: " + e.getMessage());
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Index error: " + e.getMessage());
+} catch (Exception e) {
+    System.out.println("Other: " + e.getMessage());
+}
+\end{lstlisting}
+\vspace{0.3cm}
+\begin{itemize}
+  \item Java runs the first matching catch block
+  \item Specific exceptions before broad ones
+  \item Putting \texttt{Exception} first makes all others unreachable
+\end{itemize}
+\end{frame}
+\begin{frame}{Key Terms}
+\begin{description}
+  \item[Checked exception] Must be handled; compiler enforces it
+  \item[Unchecked exception] Optional to handle; \texttt{RuntimeException} subclasses
+  \item[\texttt{try}] Wraps code that might throw
+  \item[\texttt{catch}] Handles a specific exception type
+  \item[\texttt{finally}] Always executes; used for cleanup
+  \item[\texttt{throw}] Manually throws an exception
+  \item[\texttt{throws}] Declares a method may propagate a checked exception
+\end{description}
+\end{frame}
+\begin{frame}{Common Mistakes}
+\begin{tabular}{ll}
+\toprule
+\textbf{Mistake} & \textbf{Fix} \\
+\midrule
+Broad catch before specific & Specific first, broad last \\
+Empty catch block & At minimum print \texttt{e.getMessage()} \\
+Missing finally & Add it for guaranteed cleanup \\
+\texttt{throw} vs \texttt{throws} confused & throw does it; throws declares it \\
+Catching \texttt{Error} & Don't \\
+\bottomrule
+\end{tabular}
+\end{frame}
+\begin{frame}{Lab --- ExceptionLab}
+\textbf{Implement in order:}
+\begin{enumerate}
+  \item \texttt{step1()} --- catch \texttt{ArrayIndexOutOfBoundsException}
+  \item \texttt{step2()} --- catch \texttt{NumberFormatException} + \texttt{finally}
+  \item \texttt{step4()} --- throw \texttt{IllegalArgumentException} for negative age
+  \item \texttt{step5()} --- multiple catch blocks
+\end{enumerate}
+\vspace{0.3cm}
+\textbf{Demo Requirement:} Compile live, explain what \texttt{finally} guarantees.\\
+\vspace{0.3cm}
+\textbf{Next:} Assignment 12 --- Array Bounds
+\end{frame}
+\end{document}

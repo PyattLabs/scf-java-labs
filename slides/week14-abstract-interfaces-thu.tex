@@ -1,0 +1,117 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\definecolor{charcoal}{RGB}{54,69,79}
+\setbeamercolor{structure}{fg=charcoal}
+\setbeamercolor{palette primary}{bg=charcoal,fg=white}
+\setbeamercolor{palette secondary}{bg=charcoal!90,fg=white}
+\setbeamercolor{palette tertiary}{bg=charcoal!80,fg=white}
+\setbeamercolor{palette quaternary}{bg=charcoal!70,fg=white}
+\setbeamercolor{frametitle}{bg=charcoal,fg=white}
+\setbeamercolor{title}{bg=charcoal,fg=white}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+\title[Sprint 2 Check-In]{Game Project --- Sprint 2 Check-In}
+\subtitle{COP2250: Java Programming}
+\author{Kevin Pyatt, Ph.D.}
+\institute{State College of Florida \\ Pyatt Labs}
+\date{Week 14}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{Sprint 2 Requirements}
+\textbf{Every team must show today:}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+\toprule
+\textbf{Requirement} & \textbf{Evidence} \\
+\midrule
+Abstract class with 2+ subclasses & Show the files \\
+At least one method override & Point to it in code \\
+Composition relationship & Show the field \\
+Core game loop functional & Run it live \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{Compile and run in front of me. That is the only check that matters.}
+\end{frame}
+\begin{frame}{Demo Protocol}
+\textbf{Each team in order:}
+\vspace{0.2cm}
+\begin{enumerate}
+  \item Screen-share terminal
+  \item \texttt{ls *.java} --- show all files
+  \item \texttt{javac *.java} --- must compile clean
+  \item \texttt{java Main} --- game runs and accepts input
+  \item Explain abstract class and one subclass
+\end{enumerate}
+\vspace{0.3cm}
+\textit{If the game loop is not functional, use remaining class time. Show me before you leave.}
+\end{frame}
+\begin{frame}{Apply This Week to Your Game}
+\textbf{Abstract classes and interfaces belong in your game now.}
+\vspace{0.3cm}
+\begin{tabular}{lll}
+\toprule
+\textbf{Pattern} & \textbf{Example} & \textbf{Use} \\
+\midrule
+Abstract class & \texttt{Character} & Player, NPC share behavior \\
+Interface & \texttt{Attackable} & Any class that can be hit \\
+Interface & \texttt{Saveable} & Any class that persists state \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\textit{If your game has no interface yet, add one before Sprint 3.}
+\end{frame}
+\begin{frame}{Sprint 3 Preview}
+\textbf{Feature complete by end of Week 15:}
+\vspace{0.2cm}
+\begin{itemize}
+  \item All invalid input handled --- no crashes
+  \item At least one interface implemented
+  \item Win/lose/end condition functional
+  \item Code organized and commented
+  \item All OOP requirements met
+\end{itemize}
+\vspace{0.3cm}
+\textbf{Playtest Thursday of Week 15.}\\
+\textit{The clock is running. Get it working.}
+\end{frame}
+\begin{frame}{Individual Defense Preview}
+\textbf{Week 16 --- you answer for your own code.}
+\vspace{0.2cm}
+\begin{itemize}
+  \item Which classes did you write?
+  \item Explain your abstract class
+  \item Walk me through your game loop
+  \item Where is exception handling?
+  \item What would change with a GUI?
+\end{itemize}
+\vspace{0.3cm}
+\textit{You cannot point to your teammate. You either know it or you do not.}\\
+\vspace{0.3cm}
+\textit{You built this. Own it.}
+\end{frame}
+\end{document}
